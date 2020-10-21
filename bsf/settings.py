@@ -12,7 +12,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'vb166+54$hc1g#d!1htovg9+fwu2nj0n&hun&y=@a%w2*8pfn6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', False)
+# DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -107,11 +108,28 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, '/static/')
-# STATIC_ROOT = ''
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
+AZURE_MEDIA_CONTAINER = os.environ.get('AZURE_MEDIA_CONTAINER', 'media')
+AZURE_STATIC_CONTAINER = os.environ.get('AZURE_STATIC_CONTAINER', 'static')
+
+AZURE_CUSTOM_DOMAIN = "test-bsf-777.azurewebsites.net"  # CDN URL
+
+STATIC_URL = 'http://test-bsf-777.azurewebsites.net/{AZURE_STATIC_CONTAINER}/'.format(
+    AZURE_STATIC_CONTAINER=AZURE_STATIC_CONTAINER)
+MEDIA_URL = 'http://test-bsf-777.azurewebsites.net/{AZURE_MEDIA_CONTAINER}/'.format(
+    AZURE_STATIC_CONTAINER=AZURE_STATIC_CONTAINER)
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'test-bsf-777', 'static')
+]
+
+
+# STATIC_ROOT = os.path.join(BASE_DIR, '/static/')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
+# # STATIC_ROOT = ''
+# STATIC_URL = '/static/'
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+
 
 
 
