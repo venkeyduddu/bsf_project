@@ -1,0 +1,580 @@
+body{
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  line-height: 1.42857143;
+  color: #333;
+  background: #eee;
+  margin: 0;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Cardo');
+@import url('https://fonts.googleapis.com/css?family=Times New Roman');
+
+body,
+span,
+a,
+.main-text a,
+label,
+p{
+	font-family: "Roboto", "sans-serif" !important;
+	font-size: 14px;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.header-user-nm{
+  margin-bottom:20px;
+  font-family: "open-sans-semibold"!important;
+  font-size: 14.5px;
+}
+
+.header-user-coins{
+  font-family: "open-sans-semibold"!important;
+  font-size: 15px;
+}
+
+.header-top-spacing{
+  padding-top: 15px;
+}
+
+.container {
+    width: 1170px;
+}
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.content-top-padding{
+  padding-top: 5px;
+  width: 1140px;
+}
+.header-top-spacing {
+    padding-top: 15px;
+}
+.alert-match-status-text span {
+    font-size: 18px;
+    display: table-cell;
+    vertical-align: middle;
+    font-family: 'open-sans-semibold' !important;
+}
+.alert-match-status-box{
+	width: 100%;
+ 	padding: 10px;
+}
+.alert-match-status-text{
+  padding: 15px 15px;
+  height: 80px;
+  text-align: center;
+  background-color: #f2dede;
+  border: 1px solid #ebccd1;
+  color: #a94442;
+  border-radius: 7px;
+  display: table;
+}
+.alert-match-status-text span{
+  font-size: 18px;
+  display: table-cell;
+  vertical-align: middle;
+  font-family: 'open-sans-regular' !important;
+}
+
+
+ /* <!-- Style for rules page start -->*/
+
+  .english-rules-list,
+  .english-note-text{
+    display: none;
+  }
+  .rules-main-container{
+    width: 100%;
+    position: absolute;
+    top: 200px;
+    padding-bottom:20px;
+  }
+  .hindi-rules-list,
+  .hindi-note-text,
+  .english-rules-list,
+  .english-note-text{
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+  .hindi-note-text,
+  .english-note-text{
+    list-style-type: none;
+  }
+  .lang-switch-btn{
+    width: 100%;
+    position: absolute;
+    top: 100px;
+  }
+  .lang-btn-container{
+    width: 200px;
+    float: right;
+    margin-right: 30px;
+    display: inline-flex;
+  }
+  .lang-btn-container #hindi,
+  .lang-btn-container #english{
+    width: 100px;
+    height: 50px;
+    color: #fff;
+    text-align: center;
+    line-height: 3;
+    cursor: pointer;
+  }
+
+  .lang-btn-container #hindi{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: #3A61A2;
+  }
+  .lang-btn-container #english{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #bdbdbd;
+  }
+  .hindi-rules-list li,
+  .english-rules-list li{
+    padding-bottom: 10px;
+  }
+  .lang-btn-container{
+    font-size: 16px;
+  }
+  .rules-main-container{
+    font-size: 15px;
+  }
+
+@media all and (max-width: 767px){
+  .hindi-rules-list,
+  .hindi-note-text,
+  .english-rules-list,
+  .english-note-text{
+    width: 90%;
+    margin-right: 8%;
+    margin-left: 2%;
+  }
+  .lang-btn-container{
+    font-size: 14px;
+  }
+  .rules-main-container{
+    font-size: 13px;
+  }
+  .lang-switch-btn{
+    top: 90px;
+  }
+  .lang-btn-container{
+    float: none;
+    margin: 0 calc(50% - 90px);
+  }
+  .lang-btn-container #hindi, .lang-btn-container #english {
+    width: 90px;
+    height: 40px;
+    color: #fff;
+    text-align: center;
+    line-height: 3;
+    cursor: pointer;
+  }
+  .rules-main-container {
+  top: 150px;
+  }
+  .hindi-rules-list li,
+  .english-rules-list li{
+    padding-bottom: 5px;
+  }
+}
+
+/*<!-- Style for rules page end -->*/
+
+ /* Cricket and Footbal Button swap Style Start */
+.cricket-football-main-div{
+  text-align: center !important;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.cricket-button{
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 30px 30px;
+  padding: 10px;
+  width: 170px;
+  border-style: solid;
+  outline: none;
+  background-color: #3A61A2;
+  border-color: #ffffff;
+  color: #ffffff;
+  border: 0px solid;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: 'open-sans-semibold';
+  margin-right: 5px;
+  line-height: 25px;
+}
+
+.football-button{
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 30px 30px;
+  padding: 10px;
+  width: 170px;
+  border-style: groove;
+  outline: none;
+  background-color: #3A61A2;
+  border-color: #ffffff;
+  color: #ffffff;
+  border: 0px solid;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: 'open-sans-semibold';
+  margin-left: 5px;
+  line-height: 25px;
+}
+
+.cricket-btn-color-change{
+  /*background-image: url('../images/play_hover.png');*/
+  background-image: none !important;
+  background-color: #fff;
+  border-color: #fff;
+  color: #3A61A2;
+  box-shadow: 0px 2px 2px 1px gray;
+}
+
+.football-btn-color-change{
+  /*background-image: url('../images/football_blue.ico');*/
+  background-image: none !important;
+  background-color: #fff;
+  border-color: #fff;
+  color: #3A61A2;
+  box-shadow: 0px 2px 2px 1px gray;
+}
+.cricket-btn-color-change,
+.football-btn-color-change,
+.cricket-button,
+.football-button{
+  background-image: none !important;
+  padding: 10px !important;
+}
+
+.cricket-button svg,
+.football-button svg{
+    width: auto;
+    height: 25px;
+}
+
+@media all and (max-width: 480px){
+.cricket-button,
+.football-button{
+  background-position: 6px center !important;
+  background-size: 20px 20px !important;
+  padding: 5px 5px 5px 25px !important;
+  width: 135px !important;
+  font-size: 14px !important;
+  }
+}
+/* Cricket and Footbal Button swap Style Close */
+
+ /*Start InPlay page css*/
+
+.in-play-row-right{
+  background-color: #3A61A2;
+  padding: 11px;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  height: 118px;
+  width: 185px;
+  position: absolute;
+}
+
+.in-play-row-left{
+  background-color:#fff;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  height: 118px;
+}
+
+.in-play-row-right > .match-time-dtl{
+  color:#fff;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.match-time-dtl-date{
+  font-family: "open-sans-regular"!important;
+  color: #fff;
+}
+
+.match-time-dtl-mounth{
+  font-family: "open-sans-light"!important;
+  color: #fff;
+}
+
+.in-play-row-left > .match-title{
+  padding-left: 63px;
+  padding-top: 10px;
+}
+
+.match-title > p{
+  color:#3A61A2;
+  font-family: "open-sans-regular"!important;
+  font-size: 14px !important;
+  margin: 0px 0px 0px !important;
+ }
+ .match-info p{
+    margin: 0px 0px 0px !important;
+ }
+
+ p.match-summary-text{
+  margin: 0px 0px 7px !important;
+  color: #333;
+  font-family: "open-sans-regular"!important;
+  white-space: nowrap;
+  min-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ }
+
+.match-title > .match-info{
+  color:#676767;
+  font-family: "open-sans-light"!important;
+  font-size: 13px !important;
+}
+
+@media (max-width: 767px) {
+  .in-play-row-left > .match-title {
+    padding-left: 0px;
+    padding-top: 13px;
+  }
+
+  .in-play-row-right{
+    background-color: #3A61A2;
+    padding: 3px;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+  }
+}
+ /*End InPlay page css*/
+
+.header-top-spacing {
+    padding-top: 15px;
+    width: 1140px;
+}
+
+.top-time-dtl {
+    background-color: rgb(58, 97, 162);
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    text-align: center;
+    display: none;
+}
+
+.flags-container {
+    width: auto !important;
+    position: absolute;
+}
+
+.match-detail-container {
+    width: 78% !important;
+    float: left !important;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+ /*Start Ledger Page css*/
+.ldg-tbl-th{
+   text-align:center;
+   background-color:#49494A;
+   color:#fff;
+   padding:15px !important;
+   font-weight: bold;
+   letter-spacing: 1px;
+   font-family: 'open-sans-semibold' !important;
+   border: 5px solid #E9E9E9 !important;
+ }
+
+
+.ldg-tbl-td{
+  background-color:#fff;
+  color:#49494A;
+  padding: 13px !important;
+  font-family: 'open-sans-semibold' !important;
+  border: 5px solid #E9E9E9 !important;
+  text-align: center;
+  vertical-align: middle !important;
+  word-break:break-all;
+}
+
+.bet-place-tbl-th{
+   text-align:center;
+   background-color:#49494A;
+   color:#fff;
+   padding:8px;
+   font-weight: bold;
+   letter-spacing: 1px;
+   font-family: 'open-sans-semibold' !important;
+   border: 5px solid #E9E9E9 !important;
+ }
+
+.bet-place-tbl-td{
+  background-color:#fff;
+  color:#49494A;
+  padding:8px;
+  font-family: 'open-sans-semibold' !important;
+  border: 5px solid #E9E9E9 !important;
+  text-align: center;
+  vertical-align: middle !important;
+}
+
+.bet-val-cent{
+  text-align: center;
+}
+
+ /*End Ledger page css*/
+
+ /*START LOGIN PAGE CSS*/
+
+.login_stripe{
+       background-color:#3A61A2;
+       border-radius: 10px;
+       margin-right: auto;
+       margin-left: auto;
+       text-align: center;
+       padding: 30px 10px;
+       /*width: 33.3333%;*/
+     }
+
+     .col-centered{
+         float: none !important;
+         margin: 0 auto !important;
+     }
+
+     .login_heading{
+          color: #fff;
+          font-family: "open-sans-semibold" !important;
+          font-size: 23px;
+          letter-spacing: 2px;
+          margin-top: 0px !important;
+          padding-bottom: 25px;
+     }
+     .login_text_field{
+        background-color: #fff !important;
+        font-size: 9.6px !important;
+        font-family: "open-sans-semibold" !important;
+        letter-spacing: 1.5px !important;
+        border:none !important;
+        border-radius: 8px !important;
+        color: #848484 !important;
+        height: 40px !important;
+     }
+
+     .purp_btn{
+       color: #3A61A2 !important;
+       border-radius: 30px !important;
+       font-family: "open-sans-semibold" !important;
+       font-size: 12px !important;
+       letter-spacing: 2px;
+       padding: 13px 35px;
+       /*line-height: 30px !important; */
+       background-color: #E9E9E9 !important;
+       border: 1px solid #E9E9E9 !important;
+       margin-top: 4%;
+     }
+
+
+/*END LOGIN PAGE CSS*/
+
+/*START INPLAY SHOW PAGE*/
+
+.runner-flags{
+  height: 11px;
+  width: 35px;
+  padding: 0px 10px;
+}
+
+.inplay-show-tbl-td {
+    background-color: #3A61A2 !important;
+    color: #fff;
+    padding: 10px;
+    font-family: 'open-sans-regular' !important;
+    font-weight: 600;
+
+ }
+
+ .inplay-show-place-bet{
+    color:#fff !important;
+    background-color: #3A61A2 !important;
+    text-align: center;
+    padding: 15px 0 !important;
+    font-weight: bold;
+    font-size: 20px;
+    height: 80px;
+    font-family: "open-sans-semibold" !important;
+ }
+
+ .bet-odds-type{
+    color:#49494A;
+    background-color:#E9E9E9;
+ }
+
+ .first-runner-bet-odds-yes-value{
+    margin-bottom:5px;
+    background-color:#61ACDE;
+    color:#fff;
+    font-weight: 600;
+    text-align: center;
+ }
+ .second-runner-bet-odds-yes-value{
+    margin-top:5px;
+    background-color:#61ACDE;
+    color:#fff;
+    font-weight: 600;
+    text-align: center;
+ }
+ .first-runner-bet-odds-no-value{
+   margin-bottom:5px;
+   background-color:#F6B771;
+   color:#fff;
+   font-weight: 600;
+   text-align: center;
+ }
+ .second-runner-bet-odds-no-value{
+    margin-top:5px;
+    background-color:#F6B771;
+    color:#fff;
+    font-weight: 600;
+    text-align: center;
+ }
+ .runner-nm-first{
+    background-color:#84C341;
+    margin-bottom:5px;
+    color:#fff;
+ }
+  .custom-input input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-bottom: solid 2px #c9c9c9;
+    transition: border 0.3s;
+    background-color: #E9E9E9;
+    text-align: center;
+ }
+
+  .custom-input input[type="text"]:focus,
+  .custom-input input[type="text"].focus {
+    border-bottom: solid 2px #969696;
+ }
+
+/*END INPLAY SHOW PAGE*/

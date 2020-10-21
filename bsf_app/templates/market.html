@@ -1,0 +1,450 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/show14.css' %}">
+<script src="{% static 'js/show14.js' %}"></script>
+
+<div style="padding-top:20px;">
+   <ul class="marquee">
+      <marquee>
+         <!-- <li>!! WELCOME TO BSF777.COM !! : Sabhi Agent or Client ko Suchit kiya jata hai ki aap Apni id ho ya Master Pannel sabhi k Pasword strong rakhe Normal Paswrod na Rakhe -- ( for ex)-- : 12345/s1234,,,id ya master se koi bhi Mistake ya unused hota hai to company kisi bhi prakar ki Zimedar nahi rahegi........ Thank You !! </li> -->
+          <li>
+            {{ event_name }}
+          </li>
+      </marquee>
+   </ul>
+   <!-- Body Code start -->
+   <div class="container">
+      <div class="row content-top-padding">
+         <div class="content_matches_wrapper">
+           <div class=" col-lg-8 col-xs-9 col-md-8 col-sm-7 match-score content_in_play_wrapper match-status-table match-score-box-color">
+              <p class="inplay-show-tbl-td match-status-text match-score-box-color" id="score_table_139839">Score<br>{{ runner1 }}  <br>{{ runner2 }}</p>
+           </div>
+           <div class=" col-lg-3 col-xs-3 col-md-3 col-sm-3 bet_status_box bet-status-text-div">
+              <div class="bet-status-text-p event commentry-box-color" id="event_table_139839" style="font-size: 40px; line-height: 40px; padding: 0px;">BET<br>{{ market_data.cricket.0.status }}</div>
+              <!--                       <div class="bet-status-text-p">
+                 Wide Ball <br>
+                 <i class="fa fa-plus" aria-hidden="true"></i><br>
+                 Free Hit
+                 </div> -->
+              <!-- <p class=" col-lg-12 event" id="event_table_139839" > </p>
+                 <p class=" col-lg-12  event_bet_status" id="bet-status"></p> -->
+              <!--                     <p class=" col-lg-12 event single-no-text" id="event_table_139839" > </p>
+                 -->
+              <!-- <p class=" col-lg-12  event_bet_status" id="bet-status"></p> -->
+           </div>
+           <div id="refresh2" class=" col-lg-1 col-xs-2 col-md-1 col-sm-2 refresh-btn  reload-class refresh-btn-color">
+              <!-- <img class="refresh_img" src="/images/reload.png" width="50px"> -->
+              <i class="refresh_img fa fa-refresh" aria-hidden="true"></i>
+           </div>
+        </div>
+      </div>
+      <!-- Market Bet Board start -->
+      <div class="row scroll-form" style="padding-top: 15px;">
+         <table class="table table-bordered">
+            <thead>
+               <tr>
+                  <th colspan="4" class="bet-place-tbl-th market_type_row market-name-row-color">
+                     Market
+                     :
+                     Match Winner
+                  </th>
+               </tr>
+               <tr>
+                  <th class="bet-place-tbl-th run-pos-rate-amt-run-mod-color">RUNNER</th>
+                  <th class="bet-odds-type bet-place-tbl-th lagai-box-color">LAGAI</th>
+                  <th class="bet-odds-type bet-place-tbl-th khai-box-color">KHAI</th>
+                  <th class="bet-place-tbl-th run-pos-rate-amt-run-mod-color">POSITION</th>
+               </tr>
+            </thead>
+            <tbody data-market-id="206284" data-market-sid="Match Winner_139839">
+               <tr data-runner-id="356411" data-runner-sid="Chennai Super Kings  _139839" class="non_fav_run">
+                  <td data-runner-sid="Chennai Super Kings  _139839" data-column="runner_name" class="runner_row_Chennai Super Kings  _139839 flag bet-place-tbl-td" style="text-align: left; background-color: rgb(132, 195, 65); color: rgb(255, 255, 255);"><img class="runner-flags hidden" src="{% static '/images/index.png' %}">{{ runner1 }}  </td>
+                  <td data-runner-sid="Chennai Super Kings  _139839" data-column="back" class="open-keyboard MarketTable bet-place-tbl-td first-runner-bet-odds-yes-value cursor-pointer active-lagai-bet-box-color" odd-val="1.01" market-id="206284" runner-id="356411" match-id="139839" heroic-market-type="match_winner" data-id="LAGAI" id="Match Winner_139839_back_Chennai Super Kings  _139839">
+                    {{ market_data.cricket.0.runners.0.back.0.price }}
+                  </td>
+                  <td data-runner-sid="Chennai Super Kings  _139839" data-column="lay" class="open-keyboard MarketTable bet-place-tbl-td first-runner-bet-odds-no-value cursor-pointer active-khai-bet-box-color" odd-val="1.01" market-id="206284" runner-id="356411" match-id="139839" heroic-market-type="match_winner" data-id="KHAI" id="Match Winner_139839_lay_Chennai Super Kings  _139839">
+                    {{ market_data.cricket.0.runners.0.lay.0.price }}
+                  </td>
+                  <td data-runner-sid="Chennai Super Kings  _139839" data-column="position" class="runner_row_Chennai Super Kings  _139839 bet-place-tbl-td  bet-val-cent" data-position="0" style="background-color: rgb(132, 195, 65); color: rgb(255, 255, 255);">
+                     POSITION
+                  </td>
+               </tr>
+               <tr data-runner-id="356412" data-runner-sid="Rajasthan Royals_139839" class="fav_run">
+                  <td data-runner-sid="Rajasthan Royals_139839" data-column="runner_name" class="runner_row_Rajasthan Royals_139839 flag bet-place-tbl-td" style="text-align: left; background-color: rgb(132, 195, 65); color: rgb(255, 255, 255);"><img class="runner-flags hidden" src="{% static 'images/index.png' %}">{{ runner2 }}</td>
+                  <td data-runner-sid="Rajasthan Royals_139839" data-column="back" class="open-keyboard MarketTable bet-place-tbl-td first-runner-bet-odds-yes-value cursor-pointer active-lagai-bet-box-color" odd-val="1.95" market-id="206284" runner-id="356412" match-id="139839" heroic-market-type="match_winner" data-id="LAGAI" id="Match Winner_139839_back_Rajasthan Royals_139839">
+                    {{ market_data.cricket.0.runners.1.back.0.price }}
+                  </td>
+                  <td data-runner-sid="Rajasthan Royals_139839" data-column="lay" class="open-keyboard MarketTable bet-place-tbl-td first-runner-bet-odds-no-value cursor-pointer active-khai-bet-box-color" odd-val="1.97" market-id="206284" runner-id="356412" match-id="139839" heroic-market-type="match_winner" data-id="KHAI" id="Match Winner_139839_lay_Rajasthan Royals_139839">
+                    {{ market_data.cricket.0.runners.1.lay.0.price }}
+                  </td>
+                  <td data-runner-sid="Rajasthan Royals_139839" data-column="position" class="runner_row_Rajasthan Royals_139839 bet-place-tbl-td  bet-val-cent" data-position="0" style="background-color: rgb(132, 195, 65); color: rgb(255, 255, 255);">
+                     POSITION
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+      <!-- Market bet board end -->
+      <!-- custom market start-->
+      <div class="row scroll-form custom-markets-divs" style="padding-top: 15px;">
+      </div>
+      <!-- custom market end -->
+      <!-- Session bet board start -->
+      <div class="row" style="padding-top: 0px;">
+         <table class="table table-bordered session-bets-table">
+            <thead class="sessions-thead">
+               <tr class="sessions-title">
+                  <th colspan="5" class="bet-place-tbl-th market_type_row market-name-row-color">SESSION</th>
+               </tr>
+               <tr class="sessions-header">
+                  <th class="bet-place-tbl-th run-pos-rate-amt-run-mod-color">SESSION</th>
+                  <th class="bet-odds-type bet-place-tbl-th yes-box-color">
+                  Yes
+                  </th>
+                  <th class="bet-place-tbl-th run-pos-rate-amt-run-mod-color">RATE</th>
+                  <th class="bet-odds-type bet-place-tbl-th not-box-color">
+                  No
+                  </th>
+                  <th class="bet-place-tbl-th run-pos-rate-amt-run-mod-color">RATE</th>
+               </tr>
+            </thead>
+            <tbody>
+              {% for row in market_data.session.0s.session %}
+               <tr data-session-type="runs_in_innings" data-heroic-market-type="session" data-heroic-market-id="27025" data-innings="1" data-overs="20">
+                  <td data-column="session_title" class="bet-place-tbl-td" style="text-align:left;">
+                    {{ row.RunnerName }}
+                  </td>
+                  <td data-column="no_runs" class="open-keyboard-session not-value-box-color SessionTable bet-place-tbl-td first-runner-bet-odds-yes-value cursor-pointer close-status" data-id="NO" match-id="139839" session-run-id="1075522" session-id="27025" id="27025_no">
+                    {{ row.LayPrice1 }}
+                  </td>
+                  <td data-column="no_rate" class="bet-place-tbl-td bet-val-cent close-status" id="27025_no_rate">
+                    {{ row.LaySize1 }}
+                  </td>
+                  <td data-column="yes_runs" class="open-keyboard-session yes-value-box-color SessionTable bet-place-tbl-td first-runner-bet-odds-no-value cursor-pointer close-status" data-id="YES" match-id="139839" session-run-id="1075522" session-id="27025" id="27025_yes">
+                    {{ row.BackPrice1 }}
+                  </td>
+                  <td data-column="yes_rate" class="bet-place-tbl-td bet-val-cent close-status" id="27025_yes_rate">
+                    {{ row.BackSize1 }}
+                  </td>
+               </tr>
+               {% endfor %}
+            </tbody>
+         </table>
+      </div>
+      <!-- session bet board end -->
+      <!-- even odd market bet board start -->
+      <!--<div class="row scroll-form even-odds-markets-divs">
+         <table class="table table-bordered" data-heroic-market-type="even_odd" data-heroic-market-id="206514" data-overs="10">
+            <thead>
+               <tr>
+                  <th colspan="3" class="bet-place-tbl-th market_type_row market-name-row-color">Market : Chennai Super Kings 10 Over Last Digit Even Odd</th>
+               </tr>
+               <tr>
+                  <th class="bet-place-tbl-th run-pos-rate-amt-run-mod-color">RUNNER</th>
+                  <th class="bet-odds-type bet-place-tbl-th lagai-box-color">RATE</th>
+                  <th class="bet-place-tbl-th run-pos-rate-amt-run-mod-color">POSITION</th>
+               </tr>
+            </thead>
+            <tbody data-market-id="206514" data-market-sid="10_139839_even_odd">
+               <tr data-runner-id="356879" data-runner-sid="206514_even" class="fav_run">
+                  <td data-runner-sid="206514_even" data-column="runner_name" class="runner_row_206514_even flag bet-place-tbl-td" style="text-align: left; background-color: rgb(132, 195, 65); color: rgb(255, 255, 255);"><img class="runner-flags hidden" src="{% static 'images/index.png' %}">Even</td>
+                  <td data-runner-sid="206514_even" market-name="Chennai Super Kings 10 Over Last Digit Even Odd" data-column="back" class="open-keyboard-even-odd MarketEvenOddTable bet-place-tbl-td first-runner-bet-odds-yes-value cursor-pointer active-lagai-bet-box-color" odd-val="1.95" market-id="206514" runner-id="356879" match-id="139839" heroic-market-type="even_odd" data-id="Even" id="10_139839_even_odd_back_206514_even">0.95</td>
+                  <td data-runner-sid="206514_even" data-column="position" class="runner_row_206514_even bet-place-tbl-td  bet-val-cent" data-position="0" style="background-color: rgb(132, 195, 65); color: rgb(255, 255, 255);">0</td>
+               </tr>
+               <tr data-runner-id="356880" data-runner-sid="206514_odd" class="non_fav_run">
+                  <td data-runner-sid="206514_odd" data-column="runner_name" class="runner_row_206514_odd flag bet-place-tbl-td" style="text-align: left; background-color: white; color: rgb(73, 73, 74);"><img class="runner-flags hidden" src="{% static 'images/index.png' %}">Odd</td>
+                  <td data-runner-sid="206514_odd" market-name="Chennai Super Kings 10 Over Last Digit Even Odd" data-column="back" class="open-keyboard-even-odd MarketEvenOddTable bet-place-tbl-td first-runner-bet-odds-yes-value cursor-pointer active-lagai-bet-box-color" odd-val="1.95" market-id="206514" runner-id="356880" match-id="139839" heroic-market-type="even_odd" data-id="Odd" id="10_139839_even_odd_back_206514_odd">0.95</td>
+                  <td data-runner-sid="206514_odd" data-column="position" class="runner_row_206514_odd bet-place-tbl-td  bet-val-cent" data-position="0" style="background-color: white; color: rgb(73, 73, 74);"> 0 </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>-->
+      <!-- even odd market bet board end -->
+      <!-- ENDING DIGIT MARKET START -->
+      <!--<div class="row scroll-form ending-digits-markets-divs">
+         <table class="table table-bordered" data-heroic-market-type="ending_digit" data-heroic-market-id="206516" data-overs="10">
+            <thead>
+               <tr>
+                  <th colspan="3" class="bet-place-tbl-th market_type_row market-name-row-color">Match Lottery 9.50 : Chennai Super Kings 10  Over Ending Digit</th>
+               </tr>
+               <tr>
+                  <th class="bet-place-tbl-th run-pos-rate-amt-run-mod-color">RUNNER</th>
+                  <th class="bet-odds-type bet-place-tbl-th lagai-box-color">RATE</th>
+                  <th class="bet-place-tbl-th run-pos-rate-amt-run-mod-color">POSITION</th>
+               </tr>
+            </thead>
+            <tbody class="ending-digits-tbody" data-market-id="206516" data-market-sid="10_139839_ending_digit">
+               <tr data-runner-id="356883" data-runner-sid="206516_ending_digit_0" class="fav_run">
+                  <td data-runner-sid="206516_ending_digit_0" data-column="runner_name" class="runner_row_206516_ending_digit_0 flag bet-place-tbl-td" style="text-align: left; background-color: rgb(132, 195, 65); color: rgb(255, 255, 255);"><img class="runner-flags hidden" src="{% static 'images/index.png' %}">0</td>
+                  <td data-runner-sid="206516_ending_digit_0" market-name="Chennai Super Kings 10 Over Ending Digit" data-column="back" class="open-keyboard-even-odd MarketEvenOddTable bet-place-tbl-td first-runner-bet-odds-yes-value cursor-pointer active-lagai-bet-box-color" odd-val="1.95" market-id="206516" runner-id="356883" match-id="139839" heroic-market-type="ending_digit" data-id="0" id="10_139839_ending_digit_back_206516_ending_digit_0">9.50</td>
+                  <td data-runner-sid="206516_ending_digit_0" data-column="position" class="runner_row_206516_ending_digit_0 bet-place-tbl-td  bet-val-cent" data-position="0" style="background-color: rgb(132, 195, 65); color: rgb(255, 255, 255);">0</td>
+               </tr>
+               <tr data-runner-id="356884" data-runner-sid="206516_ending_digit_1" class="non_fav_run">
+                  <td data-runner-sid="206516_ending_digit_1" data-column="runner_name" class="runner_row_206516_ending_digit_1 flag bet-place-tbl-td" style="text-align: left; background-color: white; color: rgb(73, 73, 74);"><img class="runner-flags hidden" src="{% static 'images/index.png' %}">1</td>
+                  <td data-runner-sid="206516_ending_digit_1" market-name="Chennai Super Kings 10 Over Ending Digit" data-column="back" class="open-keyboard-even-odd MarketEvenOddTable bet-place-tbl-td first-runner-bet-odds-yes-value cursor-pointer active-lagai-bet-box-color" odd-val="1.95" market-id="206516" runner-id="356884" match-id="139839" heroic-market-type="ending_digit" data-id="1" id="10_139839_ending_digit_back_206516_ending_digit_1">9.50</td>
+                  <td data-runner-sid="206516_ending_digit_1" data-column="position" class="runner_row_206516_ending_digit_1 bet-place-tbl-td  bet-val-cent" data-position="0" style="background-color: white; color: rgb(73, 73, 74);">0</td>
+               </tr>
+               <tr data-runner-id="356885" data-runner-sid="206516_ending_digit_2" class="non_fav_run">
+                  <td data-runner-sid="206516_ending_digit_2" data-column="runner_name" class="runner_row_206516_ending_digit_2 flag bet-place-tbl-td" style="text-align: left; background-color: white; color: rgb(73, 73, 74);"><img class="runner-flags hidden" src="{% static 'images/index.png' %}">2</td>
+                  <td data-runner-sid="206516_ending_digit_2" market-name="Chennai Super Kings 10 Over Ending Digit" data-column="back" class="open-keyboard-even-odd MarketEvenOddTable bet-place-tbl-td first-runner-bet-odds-yes-value cursor-pointer active-lagai-bet-box-color" odd-val="1.95" market-id="206516" runner-id="356885" match-id="139839" heroic-market-type="ending_digit" data-id="2" id="10_139839_ending_digit_back_206516_ending_digit_2">9.50</td>
+                  <td data-runner-sid="206516_ending_digit_2" data-column="position" class="runner_row_206516_ending_digit_2 bet-place-tbl-td  bet-val-cent" data-position="0" style="background-color: white; color: rgb(73, 73, 74);">0</td>
+               </tr>
+               <tr data-runner-id="356886" data-runner-sid="206516_ending_digit_3" class="non_fav_run">
+                  <td data-runner-sid="206516_ending_digit_3" data-column="runner_name" class="runner_row_206516_ending_digit_3 flag bet-place-tbl-td" style="text-align: left; background-color: white; color: rgb(73, 73, 74);"><img class="runner-flags hidden" src="{% static 'images/index.png' %}">3</td>
+                  <td data-runner-sid="206516_ending_digit_3" market-name="Chennai Super Kings 10 Over Ending Digit" data-column="back" class="open-keyboard-even-odd MarketEvenOddTable bet-place-tbl-td first-runner-bet-odds-yes-value cursor-pointer active-lagai-bet-box-color" odd-val="1.95" market-id="206516" runner-id="356886" match-id="139839" heroic-market-type="ending_digit" data-id="3" id="10_139839_ending_digit_back_206516_ending_digit_3">9.50</td>
+                  <td data-runner-sid="206516_ending_digit_3" data-column="position" class="runner_row_206516_ending_digit_3 bet-place-tbl-td  bet-val-cent" data-position="0" style="background-color: white; color: rgb(73, 73, 74);">0</td>
+               </tr>
+               <tr data-runner-id="356887" data-runner-sid="206516_ending_digit_4" class="non_fav_run">
+                  <td data-runner-sid="206516_ending_digit_4" data-column="runner_name" class="runner_row_206516_ending_digit_4 flag bet-place-tbl-td" style="text-align: left; background-color: white; color: rgb(73, 73, 74);"><img class="runner-flags hidden" src="{% static 'images/index.png' %}">4</td>
+                  <td data-runner-sid="206516_ending_digit_4" market-name="Chennai Super Kings 10 Over Ending Digit" data-column="back" class="open-keyboard-even-odd MarketEvenOddTable bet-place-tbl-td first-runner-bet-odds-yes-value cursor-pointer active-lagai-bet-box-color" odd-val="1.95" market-id="206516" runner-id="356887" match-id="139839" heroic-market-type="ending_digit" data-id="4" id="10_139839_ending_digit_back_206516_ending_digit_4">9.50</td>
+                  <td data-runner-sid="206516_ending_digit_4" data-column="position" class="runner_row_206516_ending_digit_4 bet-place-tbl-td  bet-val-cent" data-position="0" style="background-color: white; color: rgb(73, 73, 74);">0</td>
+               </tr>
+               <tr data-runner-id="356888" data-runner-sid="206516_ending_digit_5" class="non_fav_run">
+                  <td data-runner-sid="206516_ending_digit_5" data-column="runner_name" class="runner_row_206516_ending_digit_5 flag bet-place-tbl-td" style="text-align: left; background-color: white; color: rgb(73, 73, 74);"><img class="runner-flags hidden" src="{% static 'images/index.png' %}">5</td>
+                  <td data-runner-sid="206516_ending_digit_5" market-name="Chennai Super Kings 10 Over Ending Digit" data-column="back" class="open-keyboard-even-odd MarketEvenOddTable bet-place-tbl-td first-runner-bet-odds-yes-value cursor-pointer active-lagai-bet-box-color" odd-val="1.95" market-id="206516" runner-id="356888" match-id="139839" heroic-market-type="ending_digit" data-id="5" id="10_139839_ending_digit_back_206516_ending_digit_5">9.50</td>
+                  <td data-runner-sid="206516_ending_digit_5" data-column="position" class="runner_row_206516_ending_digit_5 bet-place-tbl-td  bet-val-cent" data-position="0" style="background-color: white; color: rgb(73, 73, 74);">0</td>
+               </tr>
+               <tr data-runner-id="356889" data-runner-sid="206516_ending_digit_6" class="non_fav_run">
+                  <td data-runner-sid="206516_ending_digit_6" data-column="runner_name" class="runner_row_206516_ending_digit_6 flag bet-place-tbl-td" style="text-align: left; background-color: white; color: rgb(73, 73, 74);"><img class="runner-flags hidden" src="{% static 'images/index.png' %}">6</td>
+                  <td data-runner-sid="206516_ending_digit_6" market-name="Chennai Super Kings 10 Over Ending Digit" data-column="back" class="open-keyboard-even-odd MarketEvenOddTable bet-place-tbl-td first-runner-bet-odds-yes-value cursor-pointer active-lagai-bet-box-color" odd-val="1.95" market-id="206516" runner-id="356889" match-id="139839" heroic-market-type="ending_digit" data-id="6" id="10_139839_ending_digit_back_206516_ending_digit_6">9.50</td>
+                  <td data-runner-sid="206516_ending_digit_6" data-column="position" class="runner_row_206516_ending_digit_6 bet-place-tbl-td  bet-val-cent" data-position="0" style="background-color: white; color: rgb(73, 73, 74);">0</td>
+               </tr>
+               <tr data-runner-id="356890" data-runner-sid="206516_ending_digit_7" class="non_fav_run">
+                  <td data-runner-sid="206516_ending_digit_7" data-column="runner_name" class="runner_row_206516_ending_digit_7 flag bet-place-tbl-td" style="text-align: left; background-color: white; color: rgb(73, 73, 74);"><img class="runner-flags hidden" src="{% static 'images/index.png' %}">7</td>
+                  <td data-runner-sid="206516_ending_digit_7" market-name="Chennai Super Kings 10 Over Ending Digit" data-column="back" class="open-keyboard-even-odd MarketEvenOddTable bet-place-tbl-td first-runner-bet-odds-yes-value cursor-pointer active-lagai-bet-box-color" odd-val="1.95" market-id="206516" runner-id="356890" match-id="139839" heroic-market-type="ending_digit" data-id="7" id="10_139839_ending_digit_back_206516_ending_digit_7">9.50</td>
+                  <td data-runner-sid="206516_ending_digit_7" data-column="position" class="runner_row_206516_ending_digit_7 bet-place-tbl-td  bet-val-cent" data-position="0" style="background-color: white; color: rgb(73, 73, 74);">0</td>
+               </tr>
+               <tr data-runner-id="356891" data-runner-sid="206516_ending_digit_8" class="non_fav_run">
+                  <td data-runner-sid="206516_ending_digit_8" data-column="runner_name" class="runner_row_206516_ending_digit_8 flag bet-place-tbl-td" style="text-align: left; background-color: white; color: rgb(73, 73, 74);"><img class="runner-flags hidden" src="{% static 'images/index.png' %}">8</td>
+                  <td data-runner-sid="206516_ending_digit_8" market-name="Chennai Super Kings 10 Over Ending Digit" data-column="back" class="open-keyboard-even-odd MarketEvenOddTable bet-place-tbl-td first-runner-bet-odds-yes-value cursor-pointer active-lagai-bet-box-color" odd-val="1.95" market-id="206516" runner-id="356891" match-id="139839" heroic-market-type="ending_digit" data-id="8" id="10_139839_ending_digit_back_206516_ending_digit_8">9.50</td>
+                  <td data-runner-sid="206516_ending_digit_8" data-column="position" class="runner_row_206516_ending_digit_8 bet-place-tbl-td  bet-val-cent" data-position="0" style="background-color: white; color: rgb(73, 73, 74);">0</td>
+               </tr>
+               <tr data-runner-id="356892" data-runner-sid="206516_ending_digit_9" class="non_fav_run">
+                  <td data-runner-sid="206516_ending_digit_9" data-column="runner_name" class="runner_row_206516_ending_digit_9 flag bet-place-tbl-td" style="text-align: left; background-color: white; color: rgb(73, 73, 74);"><img class="runner-flags hidden" src="{% static 'images/index.png' %}">9</td>
+                  <td data-runner-sid="206516_ending_digit_9" market-name="Chennai Super Kings 10 Over Ending Digit" data-column="back" class="open-keyboard-even-odd MarketEvenOddTable bet-place-tbl-td first-runner-bet-odds-yes-value cursor-pointer active-lagai-bet-box-color" odd-val="1.95" market-id="206516" runner-id="356892" match-id="139839" heroic-market-type="ending_digit" data-id="9" id="10_139839_ending_digit_back_206516_ending_digit_9">9.50</td>
+                  <td data-runner-sid="206516_ending_digit_9" data-column="position" class="runner_row_206516_ending_digit_9 bet-place-tbl-td  bet-val-cent" data-position="0" style="background-color: white; color: rgb(73, 73, 74);">0</td>
+               </tr>
+            </tbody>
+         </table>
+      </div> -->
+      <!--- ENDIG DIGIT ODD MARKET -->
+      <!-- Market Bet Amount Form start -->
+      <form accept-charset="UTF-8" action="/user/matches/create_bet" class="input-coin market-form show_bet_place_btn" data-remote="true" method="post" style="display:none;">
+         <div style="display:none"><input name="utf8" type="hidden" value="✓"></div>
+         <div class="market-block" style="float: left;">
+            <text class="align-to-right-on-mobile" style="font-weight: bold;">Market :</text>
+            <text class="align-to-right-on-mobile" name="runner_nm" id="market-nm"></text>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br class="break-on-mobile">
+            <text class="align-to-right-on-mobile" style="font-weight: bold;">RATE :</text>
+            <text class="align-to-right-on-mobile" id="odds"></text>
+            <input id="odds_type" type="hidden" name="odds_type" value="">
+            <input id="runner_id" type="hidden" name="runner_id" value="">
+            <input id="odds_val" type="hidden" name="odds_val" value="">
+            <input id="match_id" type="hidden" name="match_id" value="">
+            <input id="market_id" type="hidden" name="market_id" value="">
+            <input id="match_winner_heroic_market_type" type="hidden" name="heroic_market_type" value="">
+         </div>
+         <div class="place-amount load-button-new-class place-amount-div">
+            AMOUNT:  <span class=""><input class="amt_field1" autocomplete="off" style="text-decoration:none;line-height: normal;" id="coin_countity_bet" type="text" name="stack" title="Coin"></span>
+            <!-- <button class="inplay-show-amount" type="submit" style="color:#61ACDE;">DONE</button>  -->
+            <button type="submit" class="button alert round amount-btn-color place-bet-done-btn">Done</button>
+         </div>
+      </form>
+      <!-- Market Bet Amount Form End -->
+      <!-- Session Amount Form Start -->
+      <form accept-charset="UTF-8" action="/user/matches/create_session_bet" class="input-coin session-form show_bet_place_btn" data-remote="true" method="post" style="display:none;">
+         <div style="display:none"><input name="utf8" type="hidden" value="✓"></div>
+         <div class="session-block" style="float: left;">
+            <text class="align-to-right-on-mobile" style="font-weight: bold;">SESSION :</text>
+            <text class="align-to-right-on-mobile" id="session-nm"></text>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br class="break-on-mobile">
+            <text class="align-to-right-on-mobile" style="font-weight: bold;">RUNS :</text>
+            <text class="align-to-right-on-mobile" id="runns"></text>
+            <input id="s_match_id" type="hidden" name="match_id" value="">
+            <input id="runs" type="hidden" name="runs" value="">
+            <input id="action" type="hidden" name="session_bet_type" value="">
+            <input id="session_id" type="hidden" name="session_id" value="">
+            <input id="session_run_id" type="hidden" name="session_run_id" value="">
+            <input id="session_rate" type="hidden" name="odd_value">
+         </div>
+         <div class="place-amount load-button-new-class place-amount-div">
+            AMOUNT:  <span class=""><input class="amt_field" autocomplete="off" style="text-decoration:none;line-height: normal;" id="coin_countity_session" type="text" name="coins_debited" title="Coin"> </span>
+            <button type="submit" class="button alert round amount-btn-color place-bet-done-btn">Done</button>
+         </div>
+      </form>
+      <!-- Session Amount Form End -->
+      <!-- Even Odd Amount Form start -->
+      <form accept-charset="UTF-8" action="/user/matches/create_bet" class="input-coin even-odd-market-form show_bet_place_btn" data-remote="true" id="place-amount-field-div" method="post" style="display:none;">
+         <div style="display:none"><input name="utf8" type="hidden" value="✓"></div>
+         <div class="market-block" style="float: left;">
+            <text class="align-to-right-on-mobile" style="font-weight: bold;">Market :</text>
+            <text class="align-to-right-on-mobile" name="runner_nm" id="even-odd-market-nm"></text>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br class="break-on-mobile">
+            <text class="align-to-right-on-mobile" style="font-weight: bold;">RATE :</text>
+            <text class="align-to-right-on-mobile" id="even_odd_odds"></text>
+            <input id="even_odd_odds_type" type="hidden" name="odds_type" value="LAGAI">
+            <input id="even_odd_runner_id" type="hidden" name="runner_id" value="">
+            <input id="even_odd_odds_val" type="hidden" name="odds_val" value="">
+            <input id="even_odd_match_id" type="hidden" name="match_id" value="">
+            <input id="even_odd_market_id" type="hidden" name="market_id" value="">
+            <input id="even_odd_heroic_market_type" type="hidden" name="heroic_market_type" value="">
+         </div>
+         <div class="place-amount load-button-new-class place-amount-div">
+            AMOUNT:  <span class=""><input class="amt_field_even_odd" autocomplete="off" style="text-decoration:none;line-height: normal;" id="coin_countity_even_odd" type="text" name="stack" title="Coin"></span>
+            <!-- <button class="inplay-show-amount" type="submit" style="color:#61ACDE;">DONE</button>  -->
+            <button type="submit" class="button alert round amount-btn-color place-bet-done-btn">Done</button>
+         </div>
+      </form>
+      <!-- Even Odd Amount Form end -->
+      <div class="place-amount load-button-new-class enter-default-value place-bet-buttons-div" style="display: none;">
+         <table class="bet-value-buttons-table">
+            <tbody>
+               <tr>
+                  <td><button amt-value="10000" class="default-value-btn">10H</button></td>
+                  <td><button amt-value="25000" class="default-value-btn">25 H</button></td>
+                  <td><button amt-value="50000" class="default-value-btn">50 H</button></td>
+                  <td><button amt-value="100000" class="default-value-btn">1 L</button></td>
+                  <td><button amt-value="200000" class="default-value-btn">2 L</button></td>
+                  <td rowspan="2"><button amt-value="clear" class="default-value-btn bet-value-clear-button">Clear</button></td>
+               </tr>
+               <tr>
+                  <td><button amt-value="300000" class="default-value-btn">3 L</button></td>
+                  <td><button amt-value="400000" class="default-value-btn">4 L</button></td>
+                  <td><button amt-value="500000" class="default-value-btn">5 L</button></td>
+                  <td><button amt-value="1000000" class="default-value-btn">10 L</button></td>
+                  <td><button amt-value="2500000" class="default-value-btn">25 L</button></td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+      <!-- custom bet listing start-->
+      <!-- custom bet listing end -->
+      <!--          ENEN ODD MARKET BETS LISTING         -->
+      <!--          ENEN ODD MARKET BETS LISTING         -->
+      <!--          ENDING DIGIT MARKET BET LISTING        -->
+      <!--          ENDING DIGIT MARKET BET LISTING        -->
+      <br>
+      <a href="/user/games">
+         <div class="game-footer-outer show-play-and-win">
+            <div class="games-footer"><img src="{% static 'images/Dus_ka_Dum_Bg.jpg' %}" alt=""> </div>
+            <div class="pw-close" onclick="removeGameBanner()">×</div>
+         </div>
+      </a>
+      <div class="row">
+         <div class="match-index-row header-top-spacing">
+            <div class="row" style="padding-bottom: 30px;margin: auto auto;"></div>
+         </div>
+      </div>
+   </div>
+   <!-- <button class="md-trigger" data-modal="modal-1">Fade in &amp; Scale</button> -->
+</div>
+
+<style type="text/css">
+
+.market_type_row{
+  background-color: #6E8FC9 !important;
+}
+
+.reload-class{
+  cursor: pointer;
+}
+
+.table.table-bordered{
+  margin-bottom: 15px !important;
+}
+
+.table {
+  table-layout:fixed;
+}
+
+.table td,.table th {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+ /* Play Games Footer */
+.game-footer-outer{
+  width: calc(100% - 10px);
+  height: 120px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0px 20px 0px #000;
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
+  display: none;
+
+  position: relative;
+  background-image: url("{% static 'images/Dus_ka_Dum_Bg.jpg' %}");
+  background-repeat: no-repeat;
+  background-position:top -28px left 38px;
+  background-size: cover;
+}
+.games-footer img{
+  position: absolute;
+  top:0;
+  left:0;
+  height:120px;
+  width:auto;
+}
+
+
+.games-ad-row .game-footer-outer{
+  width: 100%;
+  position: relative;
+  bottom: inherit;
+  right: inherit;
+  left: inherit;
+}
+
+.dashboard_content .game-footer-outer{
+  margin-top: 40px;
+}
+
+.play-and-win{
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  color: #c5241d;
+  background-color: white;
+  box-shadow: 0 0 35px 10px #000;
+  text-shadow: 0px 0px 3px #808080;
+  margin-right: 35px;
+}
+.pw-close{
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #fff;
+  background-color: #c72c264d;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  border-radius: 0 4px 0 4px;
+  cursor: pointer;
+}
+.show-play-and-win {
+  display: flex;
+}
+
+.game-footer-outer {
+    /* display: none !important; */
+    width: 600px;
+    left: calc(50% - 300px);
+    bottom: 15px;
+}
+
+</style>
+
+{% endblock %}

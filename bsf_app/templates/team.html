@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+
+<!-- Match Winner Place Match Bets -->
+                                            <!-- End Match Winner Place Match Bets -->
+
+
+
+<!-- Custom Market Bets start -->
+
+<!-- Custom market bet end -->
+
+
+                      <!-- Even Odd Place Match Bets -->
+                    <!-- End Even Odd Place Match Bets -->
+
+
+                    <!-- Digit ending Match Bets -->
+                    <!-- End Even Odd Place Match Bets -->
+
+
+
+                    <!-- Place Session Bets -->
+                                  <!-- End Place Session Bets -->
+
+                                  <!-- Match Session Plus Minus -->
+
+   <div class="bet-place-tbl-th" style="margin: 0px;">Match Plus Minus</div>
+        <div class="bet-place-tbl-td" style="color:red;margin: 0% 0% 4% 0%;">You Lost 0.0/- Coins.</div>
+                                    <!-- End Match Session Plus Minus -->
+
+                                    <!-- My Commission Row -->
+
+
+                                    <!-- End My Commission Row -->
+
+                                    <!-- Amount After Comm. & Share -->
+   <div class="bet-place-tbl-th" style="margin: 0px;">Amount After Comm. &amp; Share</div>
+
+   <div class="bet-place-tbl-td" style="color:red; margin: 0% 0% 4% 0%;">You Lost 0.0 Coins.</div>
+                                    <!-- End Amount After Comm. & Share -->
+
+                                    <!-- Mob. App. Charges -->
+   <div class="bet-place-tbl-th" style="margin: 0px;">Mob. App. Charges</div>
+   <div class="bet-place-tbl-td" style="color:red;margin: 0% 0% 4% 0%;">You Lost 10.0/- Coins.</div>
+                                    <!-- End Mob. App. Charges -->
+
+                                    <!-- Net Plus Minus -->
+   <div class="bet-place-tbl-th" style="margin: 0px;">Net Plus Minus</div>
+
+   <div class="bet-place-tbl-td" style="color:red;margin: 0% 0% 4% 0%;">You Lost 10.0/- Coins.</div>
+                                     <!-- End Net Plus Minus -->
+   <a href="{% url 'ledger' %}">
+      <div class="bet-place-tbl-th" style="margin: 0% 0% 8% 0%;">BACK TO LIST</div>
+   </a>
+
+</div>
+
+<style type="text/css">
+
+</style>
+
+{% endblock %}
