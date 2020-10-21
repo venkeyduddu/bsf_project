@@ -124,11 +124,16 @@ USE_TZ = True
 # ]
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 # STATIC_ROOT = ''
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,"bsf", "static"),
+]
+STATIC_ROOT  = os.path.join(BASE_DIR, "static")
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
 
 
 
