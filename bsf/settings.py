@@ -105,35 +105,19 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
-
-# AZURE_MEDIA_CONTAINER = os.environ.get('AZURE_MEDIA_CONTAINER', 'media')
-# AZURE_STATIC_CONTAINER = os.environ.get('AZURE_STATIC_CONTAINER', 'static')
-
-# AZURE_CUSTOM_DOMAIN = "test-bsf-777.azurewebsites.net"  # CDN URL
-
-# STATIC_URL = 'http://test-bsf-777.azurewebsites.net/{AZURE_STATIC_CONTAINER}/'.format(
-#     AZURE_STATIC_CONTAINER=AZURE_STATIC_CONTAINER)
-# MEDIA_URL = 'http://test-bsf-777.azurewebsites.net/{AZURE_MEDIA_CONTAINER}/'.format(
-#     AZURE_STATIC_CONTAINER=AZURE_STATIC_CONTAINER)
-
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'test-bsf-777', 'static')
-# ]
-
 
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-# STATIC_ROOT = ''
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,"bsf", "static"),
-]
-STATIC_ROOT  = os.path.join(BASE_DIR, "static")
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
+# # STATIC_ROOT = ''
+# STATIC_URL = '/static/'
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATICFILES_DIRS = [
+    'D:/home/site/wwwroot/static',
+    os.path.join(BASE_DIR,'static'),
+]
 
 
 
