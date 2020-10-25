@@ -106,11 +106,11 @@ USE_TZ = True
 
 
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
-# # STATIC_ROOT = ''
+# STATIC_ROOT = ""
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
 # STATIC_URL = '/static/'
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/'), ]
+
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
@@ -129,3 +129,5 @@ OTP = "http://ec2-13-58-41-168.us-east-2.compute.amazonaws.com:8080/IPL/OTPServi
 AUTH = "http://ec2-13-58-41-168.us-east-2.compute.amazonaws.com:8080/IPL/Auth/authenticateuser"
 UPCOMING = "http://ec2-13-58-41-168.us-east-2.compute.amazonaws.com:8080/IPL/newbetfairupcoming/getupcoming"
 ODDS_SESSION = "http://ec2-13-58-41-168.us-east-2.compute.amazonaws.com:8080/IPL/betfair_odds_session/getmatchodds_session/{market_id}"
+CREATE_BET = "http://ec2-13-58-41-168.us-east-2.compute.amazonaws.com:8080/IPL/place_bet/place"
+SCORE_API = "https://ips.betfair.com/inplayservice/v1/scores?_ak=nzIFcwyWhrlwYMrh&alt=json&eventIds={event_id}&locale=en_GB&productType=EXCHANGE&regionCode=UK"

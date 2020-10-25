@@ -537,6 +537,14 @@ p {
     font-weight: 600;
     text-align: center;
  }
+ /*.yes-value{
+    background-color: #61ACDE;
+    color: #fff;
+ }
+ .no-value{
+    background-color: #61ACDE;
+    color: #fff;
+ }*/
  .second-runner-bet-odds-yes-value{
     margin-top:5px;
     background-color:#61ACDE;
@@ -578,3 +586,194 @@ p {
  }
 
 /*END INPLAY SHOW PAGE*/
+
+/* START BSAE PAGE CSS */
+
+.navbar-custom {
+  background-color: #3A61A2 !important;
+  border-color: #fff !important;
+  height: 60px;
+  border-bottom: 3px solid #fff;
+}
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: rgba(255,255,255,.8);
+}
+
+/* change the link color and padding  */
+.navbar-custom .navbar-nav .nav-link {
+    color: rgba(255,255,255,.5);
+    padding: .75rem 1rem;
+}
+
+/* change the color and bg color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link{
+    color: #3A61A2;
+    background-color: #fff;
+    height: 60px;
+}
+
+
+.img-circle {
+    height: 45px !important;
+    width: 45px !important;
+    /* background-color: #fff; */
+}
+
+.navbar-right {
+    float: right!important;
+    margin-right: -15px;
+}
+
+.user_profile_detail {
+    line-height: 1.8;
+    margin-top: 0px;
+    color: #fff;
+    padding-top: 0px;
+    display: inline-block;
+}
+
+.img_home{
+  width: 30px !important;
+  height: 30px !important;
+  vertical-align: middle;
+}
+
+.logout-img-home{
+  width: 28px !important;
+  height: 28px !important;
+  margin-left: 10px !important;
+}
+
+.home_lable{
+  font-family: "open-sans-semibold" !important;
+  font-size: 16px;
+  padding: 0px 15px 0px !important;
+  position: relative;
+  top: 4px;
+  letter-spacing: 2px;
+}
+
+.img-circle{
+  height: 45px !important;
+  width: 45px !important;
+  /*background-color: #fff;*/
+}
+
+
+.navbar-custom .nav-item .nav-link{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #fff;
+}
+
+svg.white-svg path{
+  fill: #fff !important;
+}
+
+.nav-item.active .nav-link svg.white-svg path{
+    fill: #3A61A2 !important;
+}
+
+/* END BSAE PAGE CSS */
+
+/* NOTIFY CSS */
+.noty_bar {
+    padding: 15px;
+    overflow: hidden;
+    border-radius: 2px;
+    position: relative;
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+
+.noty_bar .noty_body {
+    padding: 10px;
+    font-size: 14px;
+}
+
+.noty_bar .noty_buttons {
+    padding: 10px;
+}
+
+.noty_type_alert,
+.noty_type_notification {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e6ecf5;
+    color: #888da8;
+}
+
+.noty_type_warning {
+    background-color: #fffae6;
+    color: #ffcc00;
+}
+
+.noty_type_error {
+    background-color: #ffeff4;
+    color: #ff3c7e;
+}
+
+.noty_type_info,
+.noty_type_information {
+    background-color: #e5f4fd;
+    color: #0f9aee;
+}
+
+.noty_type_success {
+    background-color: #ebfaeb;
+    color: #2fad2e;
+}
+
+.noty_type_confirm {
+    background-color: #cccbf6;
+    color: #7774e7;
+}
+
+#noty_top_layout_container {
+    top: 55px !important;
+    right: 0px !important;
+    left: auto !important;
+    width: 100% !important;
+    margin-left: 30px !important;
+    padding-left: 280px !important;
+    z-index: 1 !important;
+}
+
+#noty_bottom_layout_container {
+    bottom: 0px !important;
+    right: 0px !important;
+    left: auto !important;
+    width: 100% !important;
+    margin-left: 30px !important;
+    padding-left: 280px !important;
+    z-index: 1 !important;
+}
+
+#noty_topRight_layout_container,
+#noty_topLeft_layout_container {
+    top: 70px !important;
+}
+
+#noty_topLeft_layout_container,
+#noty_bottomLeft_layout_container {
+    left: 305px !important;
+}
+
+.noty-animation {
+    animation-duration: 0.2s;
+    -webkit-animation-duration: 0.2s;
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+}
+
+.noty-animation.i-am-closing-now {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* END NOTIFY CSS */

@@ -1,0 +1,129 @@
+{% load static %}
+<div class="row content-top-padding">
+   <div class="content_matches_wrapper">
+     <div class=" col-lg-8 col-xs-9 col-md-8 col-sm-7 match-score content_in_play_wrapper match-status-table match-score-box-color">
+        <p class="inplay-show-tbl-td match-status-text match-score-box-color" id="score_table_139839">
+        {% for team_score in score %}
+        {{ team_score.name }} {{ team_score.runs }} / {{ team_score.wickets }} ({{ team_score.overs }})
+        <br>
+        {% endfor %}
+        </p>
+     </div>
+     <div class=" col-lg-3 col-xs-3 col-md-3 col-sm-3 bet_status_box bet-status-text-div">
+        <div class="bet-status-text-p event commentry-box-color" id="event_table_139839" style="font-size: 40px; line-height: 40px; padding: 0px;">BET<br>{{ market_data.cricket.0.status }}</div>
+        <!--                       <div class="bet-status-text-p">
+           Wide Ball <br>
+           <i class="fa fa-plus" aria-hidden="true"></i><br>
+           Free Hit
+           </div> -->
+        <!-- <p class=" col-lg-12 event" id="event_table_139839" > </p>
+           <p class=" col-lg-12  event_bet_status" id="bet-status"></p> -->
+        <!--                     <p class=" col-lg-12 event single-no-text" id="event_table_139839" > </p>
+           -->
+        <!-- <p class=" col-lg-12  event_bet_status" id="bet-status"></p> -->
+     </div>
+     <div id="refresh2" class=" col-lg-1 col-xs-2 col-md-1 col-sm-2 refresh-btn  reload-class refresh-btn-color">
+        <!-- <img class="refresh_img" src="/images/reload.png" width="50px"> -->
+        <i class="refresh_img fa fa-refresh" aria-hidden="true"></i>
+     </div>
+  </div>
+</div>
+<!-- Market Bet Board start -->
+<div class="row scroll-form" style="padding-top: 15px;">
+   <table class="table table-bordered">
+      <thead>
+         <tr>
+            <th colspan="4" class="bet-place-tbl-th market_type_row market-name-row-color">
+               Market
+               :
+               Match Winner
+            </th>
+         </tr>
+         <tr>
+            <th class="bet-place-tbl-th run-pos-rate-amt-run-mod-color">RUNNER</th>
+            <th class="bet-odds-type bet-place-tbl-th lagai-box-color">LAGAI</th>
+            <th class="bet-odds-type bet-place-tbl-th khai-box-color">KHAI</th>
+            <th class="bet-place-tbl-th run-pos-rate-amt-run-mod-color">POSITION</th>
+         </tr>
+      </thead>
+      <tbody data-market-id="{{market_id }}" data-market-sid="Match Winner_{{ market_id }}">
+         <tr data-runner-id="{{ section_id1 }}" data-runner-sid="{{ runner1 }}  _{{ market_data.cricket.0.runners.0.marketId }}" class="non_fav_run">
+            <td data-runner-sid="{{ runner1 }}  _{{ market_data.cricket.0.runners.0.id }}" data-column="runner_name" class="
+            {% if market_data.cricket.0.runners.0.back.0.price %} market_show_team {% else %} market_hide_team {% endif %} flag bet-place-tbl-td" style=""><img class="runner-flags hidden" src="{% static 'images/index.png' %}">
+            {{ runner1 }}  </td>
+            <td data-runner-sid="{{ runner1 }}  _{{ section_id1 }}" data-column="back" class="open-keyboard MarketTable bet-place-tbl-td first-runner-bet-odds-yes-value cursor-pointer active-lagai-bet-box-color
+            {% if not market_data.cricket.0.runners.0.back.0.price %} close-status {% endif %}" odd-val="{{ market_data.cricket.0.runners.0.back.0.price }}" market-id="{{ market_id }}" market-name="{{ runner1}}" market-type="{{ market_type }}" runner-id="{{ section_id1 }}" event-id="{{event_id }}" heroic-market-type="Match Winner" data-id="KHAI" id="Match Winner_{{ section_id1 }}_lay_{{ runner1 }}  _{{ section_id1 }}">
+              {{ market_data.cricket.0.runners.0.back.0.price }}
+            </td>
+            <td data-runner-sid="{{ runner1 }}  _{{ section_id1 }}" data-column="lay" class="open-keyboard MarketTable bet-place-tbl-td first-runner-bet-odds-no-value cursor-pointer active-khai-bet-box-color
+            {% if not market_data.cricket.0.runners.0.lay.0.price %} close-status {% endif %}" odd-val="{{ market_data.cricket.0.runners.0.lay.0.price }}" market-id="{{ market_id }}" market-name="{{ runner1 }}" market-type="{{ market_type }}" runner-id="{{ section_id1 }}" event-id="{{event_id }}" heroic-market-type="Match Winner" data-id="KHAI" id="Match Winner_{{ section_id1 }}_lay_{{ runner1 }}  _{{ section_id1 }}">
+              {{ market_data.cricket.0.runners.0.lay.0.price }}
+            </td>
+            <td data-runner-sid="Kolkata Knight Riders  _140548" data-column="position" class="{% if market_data.cricket.0.runners.0.back.0.price %} market_show_team {% else %} market_hide_team {% endif %} bet-place-tbl-td  bet-val-cent" data-position="0" style="">
+               0
+            </td>
+         </tr>
+         <tr data-runner-id="{{ section_id2 }}" data-runner-sid="{{ runner2 }}_{{ section_id2 }}" class="fav_run">
+            <td data-runner-sid="{{ runner2 }}_{{ section_id2 }}" data-column="runner_name" class="
+            {% if market_data.cricket.0.runners.1.back.0.price %} market_show_team {% else %} market_hide_team {% endif %} flag bet-place-tbl-td" style=""><img class="runner-flags hidden" src="{% static 'images/index.png' %}">{{ runner2 }}</td>
+            <td data-runner-sid="{{ runner2 }}_{{ section_id2 }}" data-column="back" class="open-keyboard MarketTable bet-place-tbl-td first-runner-bet-odds-yes-value cursor-pointer active-lagai-bet-box-color
+            {% if not market_data.cricket.0.runners.1.back.0.price %} close-status {% endif %}" odd-val="{{ market_data.cricket.0.runners.1.back.0.price }}" market-id="{{ market_id }}" market-name="{{ runner2 }}" market-type="{{ market_type }}" runner-id="{{ section_id2 }}" event-id="{{event_id }}" heroic-market-type="Match Winner" data-id="LAGAI" id="Match Winner_{{ section_id2 }}_back_{{ runner2 }}_{{ section_id2 }}">
+              {{ market_data.cricket.0.runners.1.back.0.price }}
+            </td>
+            <td data-runner-sid="{{ runner2 }}_{{ section_id2 }}" data-column="lay" class="open-keyboard MarketTable bet-place-tbl-td first-runner-bet-odds-no-value cursor-pointer active-khai-bet-box-color {% if not market_data.cricket.0.runners.1.lay.0.price %} close-status {% endif %}" odd-val="{{ market_data.cricket.0.runners.1.lay.0.price }}" market-id="{{ market_id }}" market-name="{{ runner2 }}" market-type="{{ market_type }}" runner-id="{{ section_id2 }}" event-id="{{event_id }}" heroic-market-type="Match Winner" data-id="KHAI" id="Match Winner_{{ section_id2 }}_lay_{{ runner2 }}_{{ section_id2 }}">
+              {{ market_data.cricket.0.runners.1.lay.0.price }}
+            </td>
+            <td data-runner-sid="{{ runner2 }}_{{ section_id2 }}" data-column="position" class="{% if market_data.cricket.0.runners.1.back.0.price %} market_show_team {% else %} market_hide_team {% endif %} bet-place-tbl-td  bet-val-cent" data-position="0" style="">
+               0
+            </td>
+         </tr>
+      </tbody>
+   </table>
+</div>
+<!-- Market bet board end -->
+<!-- custom market start-->
+<div class="row scroll-form custom-markets-divs" style="padding-top: 15px;">
+</div>
+<!-- custom market end -->
+<!-- Session bet board start -->
+<div class="row" style="padding-top: 0px;">
+   <table class="table table-bordered session-bets-table">
+      <thead class="sessions-thead">
+         <tr class="sessions-title">
+            <th colspan="5" class="bet-place-tbl-th market_type_row market-name-row-color">SESSION</th>
+         </tr>
+         <tr class="sessions-header">
+            <th class="bet-place-tbl-th run-pos-rate-amt-run-mod-color">SESSION</th>
+            <th class="bet-odds-type bet-place-tbl-th yes-box-color">
+            Yes
+            </th>
+            <th class="bet-place-tbl-th run-pos-rate-amt-run-mod-color">RATE</th>
+            <th class="bet-odds-type bet-place-tbl-th not-box-color">
+            No
+            </th>
+            <th class="bet-place-tbl-th run-pos-rate-amt-run-mod-color">RATE</th>
+         </tr>
+      </thead>
+      <tbody>
+        {% for row in market_data.session.0.value.session %}
+         <tr data-session-type="runs_in_innings" data-heroic-market-type="session" data-heroic-market-id="{{ market_id }}" data-innings="1" data-overs="20">
+            <td data-column="session_title" class="bet-place-tbl-td" style="text-align:left;"  data-toggle="tooltip" title="{{ row.RunnerName }}">
+              {{ row.RunnerName }}
+            </td>
+            <td data-column="no_runs" class="bet-place-tbl-td open-keyboard-session SessionTable bet-val-cent cursor-pointer first-runner-bet-odds-yes-value" data-id="YES" market-name="{{ row.RunnerName }}" market-rate="{{ row.LayPrice1 }}">
+              {{ row.LayPrice1 }}
+            </td>
+            <td data-column="no_rate" class="bet-place-tbl-td bet-val-cent close-status">
+              {{ row.LaySize1 }}
+            </td>
+            <td data-column="yes_runs" class="bet-place-tbl-td open-keyboard-session SessionTable bet-val-cent cursor-pointer first-runner-bet-odds-no-value" data-id="NO" market-name="{{ row.RunnerName }}" market-rate="{{ row.BackPrice1 }}">
+              {{ row.BackPrice1 }}
+            </td>
+            <td data-column="yes_rate" class="bet-place-tbl-td bet-val-cent close-status">
+              {{ row.BackSize1 }}
+            </td>
+         </tr>
+         {% endfor %}
+      </tbody>
+   </table>
+</div>

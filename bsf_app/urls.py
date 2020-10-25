@@ -4,6 +4,7 @@ from bsf_app.views import *
 
 urlpatterns = [
 	path('', login_view, name="login_view"),
+    path('user/logout', logout, name="logout"),
 	path('get/captche/<str:captch>/', captche_image, name="captche_image"),
     path('user/rules/', rules, name="rules"),
     path('user/dashboard/', home, name="home"),
@@ -18,4 +19,6 @@ urlpatterns = [
     path('user/settings/', settings_view, name="settings"),
     path('user/tournament/', tournament, name="tournament"),
     path('user/games/', games, name="games"),
+    path('user/place-bet/', create_bet, name="create_bet"),
+    path('update_market/', update_market, name="update_market"),
 ]
