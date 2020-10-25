@@ -21,7 +21,7 @@
            <div class=" col-lg-8 col-xs-9 col-md-8 col-sm-7 match-score content_in_play_wrapper match-status-table match-score-box-color">
               <p class="inplay-show-tbl-td match-status-text match-score-box-color" id="score_table_139839">
               {% for team_score in score %}
-              {{ team_score.name }} {{ team_score.runs }}/{{ team_score.home_score }} ({{ team_score.overs }})
+              {{ team_score.name }} {% if team_score.runs %} {{ team_score.runs }}/{{ team_score.wickets }} ({{ team_score.overs }}) {% endif %}
               <br>
               {% endfor %}
               </p>
@@ -475,7 +475,24 @@
 <script type="text/javascript">
   $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
-    
+    var formdata = {}
+    formdata["marketId"] = "{{market_id}}"
+    formdata["eventName"] = "{{event_name}}"
+    formdata["eventId"] = "{{event_id}}"
+    formdata["runnerName1"] = "{{runner1}}"
+    formdata["runnerName2"] = "{{runner12}}"
+    formdata["seriesId"] = "{{series_id}}"
+    formdata["selectionId1"] = "{{section_id1}}"
+    formdata["selectionId2"] = "{{section_id12}}"
+    formdata["marketName"] = "{{market_name}}"
+    formdata["marketType"] = "{{market_type}}"
+     setInterval(function(){
+      $.get("{% url 'update_market' %}", formdata,
+        function (data) {
+          // console.log(data)
+          $('.update_market_data').html(data);
+        });
+     },5000);
 
   });
 

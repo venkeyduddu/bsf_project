@@ -6,6 +6,7 @@ import json
 from captcha.image import ImageCaptcha
 from django.contrib import messages
 import datetime
+from django.template.loader import render_to_string
 
 
 # Create your views here.
@@ -120,6 +121,7 @@ def inplay(request):
 
 
 def market_detail(request):
+    # import pdb; pdb.set_trace()
     market_id = request.GET.get("marketId")
     event_name = request.GET.get("eventName")
     event_id = request.GET.get("eventId")
@@ -135,7 +137,10 @@ def market_detail(request):
     # import pdb; pdb.set_trace()
     if api_response.status_code == 200:
         score_data = json.loads(api_response.content)
-        score = api_score(score_data)
+        if score_data:
+            score = api_score(score_data)
+        else:
+            return redirect("inplay")
     response = requests.get(
         (settings.ODDS_SESSION.format(market_id=market_id)))
     if response.status_code == 200:
@@ -194,11 +199,11 @@ def create_bet(request):
                                json=data)
         if result.status_code == 200:
             if json.loads(result.content).get("IsBetDone") == "done":
-                messages.success(request, "Created BET Successfully")
+                # messages.success(request, "Created BET Successfully")
                 return JsonResponse(
                     {"status": "success",
-                     "message": "Created BET Successfully"})
-        messages.error(request, "Created BET Failed")
+                     "message": "BET Placed Successfully"})
+        # messages.error(request, "Created BET Failed")
         return JsonResponse(
             {"status": "fail",
              "message": "Created BET Failed"})
@@ -238,18 +243,30 @@ def api_score(score_data):
         away_score = score_data[0].get("score").get("away")
         if home_score.get("highlight"):
             score = home_score.get("inning1")
-            score["name"] = home_score.get("name")
-            data.append(score)
             score1 = away_score.get("inning1")
-            score1["name"] = away_score.get("name")
-            data.append(score1)
+            if score:
+                score["name"] = home_score.get("name")
+                data.append(score)
+            else:
+                data.append({"name": home_score.get("name")})
+            if score1:
+                score1["name"] = away_score.get("name")
+                data.append(score1)
+            else:
+                data.append({"name": away_score.get("name")})
         elif away_score.get("highlight"):
             score = away_score.get("inning1")
-            score["name"] = away_score.get("name")
-            data.append(score)
-            score1 = home_score.get("inning1")
-            score1["name"] = home_score.get("name")
-            data.append(score1)
+            if score:
+                score["name"] = away_score.get("name")
+                score1 = home_score.get("inning1")
+                data.append(score)
+            else:
+                data.append({"name": away_score.get("name")})
+            if score1:
+                score1["name"] = home_score.get("name")
+                data.append(score1)
+            else:
+                data.append({"name": home_score.get("name")})
         print(data)
         return data
     return data
@@ -270,28 +287,35 @@ def update_market(request):
     # import pdb; pdb.set_trace()
     if api_response.status_code == 200:
         score_data = json.loads(api_response.content)
-        score = api_score(score_data)
+        if score_data:
+            score = api_score(score_data)
+        else:
+            return redirect("inplay")
     response = requests.get(
         (settings.ODDS_SESSION.format(market_id=market_id)))
     if response.status_code == 200:
         market_data = json.loads(response.content)
-        market_data['cricket'][0] = get_least_market_data(
-            market_data['cricket'][0])
-        response = render(
-            request, "update_market.html",
-            {"market_data": market_data,
-             "event_name": event_name,
-             "runner1": runner1,
-             "runner2": runner2,
-             "event_id": event_id,
-             "session_id": session_id,
-             "section_id1": section_id1,
-             "section_id2": section_id2,
-             "market_name": market_name,
-             "market_type": market_type,
-             "market_id": market_id,
-             "score": score})
-        return JsonResponse({"market": response})
+        if market_data:
+            market_data['cricket'][0] = get_least_market_data(
+                market_data['cricket'][0])
+            html = render_to_string(
+                'update_market.html',
+                {"market_data": market_data,
+                 "event_name": event_name,
+                 "runner1": runner1,
+                 "runner2": runner2,
+                 "event_id": event_id,
+                 "session_id": session_id,
+                 "section_id1": section_id1,
+                 "section_id2": section_id2,
+                 "market_name": market_name,
+                 "market_type": market_type,
+                 "market_id": market_id,
+                 "score": score})
+            return HttpResponse(html)
+        return redirect("inplay")
+    html = render_to_string('update_market.html')
+    return HttpResponse(html)
 
 
 def set_cookie(response, key, value,):

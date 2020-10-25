@@ -4,9 +4,9 @@
      <div class=" col-lg-8 col-xs-9 col-md-8 col-sm-7 match-score content_in_play_wrapper match-status-table match-score-box-color">
         <p class="inplay-show-tbl-td match-status-text match-score-box-color" id="score_table_139839">
         {% for team_score in score %}
-        {{ team_score.name }} {{ team_score.runs }} / {{ team_score.wickets }} ({{ team_score.overs }})
-        <br>
-        {% endfor %}
+	      {{ team_score.name }} {% if team_score.runs %} {{ team_score.runs }}/{{ team_score.wickets }} ({{ team_score.overs }}) {% endif %}
+	      <br>
+	     {% endfor %}
         </p>
      </div>
      <div class=" col-lg-3 col-xs-3 col-md-3 col-sm-3 bet_status_box bet-status-text-div">
