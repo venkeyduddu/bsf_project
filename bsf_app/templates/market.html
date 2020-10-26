@@ -487,12 +487,13 @@
     formdata["marketName"] = "{{market_name}}"
     formdata["marketType"] = "{{market_type}}"
      setInterval(function(){
-      $.get("{% url 'update_market' %}", formdata,
-        function (data) {
-          // console.log(data)
-          $('.update_market_data').html(data);
-        });
-     },5000);
+        $.get("{% url 'update_market' %}", formdata,
+          function (data) {
+            // console.log(data)
+            $('.update_market_data').html(data);
+          });
+      // }
+       },10000);
 
   });
 

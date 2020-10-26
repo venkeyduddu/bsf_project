@@ -777,3 +777,11 @@ svg.white-svg path{
 }
 
 /* END NOTIFY CSS */
+
+.img-height,
+.play-all {
+    height: 30px !important;
+    margin-top: 5px !important;
+    width: auto;
+    margin-left: 0px !important;
+}

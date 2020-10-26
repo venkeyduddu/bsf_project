@@ -111,8 +111,8 @@ $(document).ready(function(){
   //   }
   // });
   // // MarketTable close
-
-  $('.MarketTable').click(function(e){
+  $('body').on('click', 'td.MarketTable', function(e) {
+  // $('.MarketTable').click(function(e){
     var cell = $(e.target).get(0)
     var clicked_value = $(cell).html();
     var float_convert = parseFloat(clicked_value);

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponse, JsonResponse
 import requests
 from django.conf import settings
@@ -7,11 +7,20 @@ from captcha.image import ImageCaptcha
 from django.contrib import messages
 import datetime
 from django.template.loader import render_to_string
-
+from functools import wraps
 
 # Create your views here.
 
 CONST = 879
+
+
+def bsf_login_required(f):
+    @wraps(f)
+    def decorated_function(request, *args, **kwargs):
+        if not request.COOKIES.get("user_name"):
+            return redirect(reverse("signin"))
+        return f(request, *args, **kwargs)
+    return decorated_function
 
 
 def login_view(request):
@@ -62,6 +71,7 @@ def signin_view(request):
     return render(request, "sign_in.html", {"error": "invalid captcha", "otp": captcha_key})
 
 
+@bsf_login_required
 def rules(request):
     request.COOKIES.get("user_name")
     user_name = request.COOKIES.get("user_name")
@@ -70,30 +80,36 @@ def rules(request):
         {"current_page": "rules", "user_name": user_name})
 
 
+@bsf_login_required
 def home(request):
     return render(request, "home.html")
 
 
+@bsf_login_required
 def schedule(request):
     return render(request, "schedule.html")
 
 
+@bsf_login_required
 def ledger(request):
     return render(
         request, "ledger.html",
         {"current_page": "ledger"})
 
 
+@bsf_login_required
 def ledger_team(request, ledger_id):
     return render(request, "team.html")
 
 
+@bsf_login_required
 def change_password(request):
     return render(
         request, "password.html",
         {"current_page": "change_password"})
 
 
+@bsf_login_required
 def upcoming(request):
     if request.method == "GET":
         # import pdb; pdb.set_trace()
@@ -107,6 +123,7 @@ def upcoming(request):
         return render(request, "upcoming.html", {"current_page": "upcoming"})
 
 
+@bsf_login_required
 def inplay(request):
     if request.method == "GET":
         # import pdb; pdb.set_trace()
@@ -120,6 +137,7 @@ def inplay(request):
         return render(request, "inplay.html", {"current_page": "inplay"})
 
 
+@bsf_login_required
 def market_detail(request):
     # import pdb; pdb.set_trace()
     market_id = request.GET.get("marketId")
@@ -139,8 +157,6 @@ def market_detail(request):
         score_data = json.loads(api_response.content)
         if score_data:
             score = api_score(score_data)
-        else:
-            return redirect("inplay")
     response = requests.get(
         (settings.ODDS_SESSION.format(market_id=market_id)))
     if response.status_code == 200:
@@ -167,18 +183,22 @@ def market_detail(request):
     return render(request, "market.html")
 
 
+@bsf_login_required
 def tournament(request):
     return render(request, "tournament.html")
 
 
+@bsf_login_required
 def settings_view(request):
     return render(request, "settings.html")
 
 
+@bsf_login_required
 def games(request):
     return render(request, "games.html")
 
 
+@bsf_login_required
 def create_bet(request):
     # import pdb; pdb.set_trace()
     if request.method == "POST":
@@ -209,6 +229,7 @@ def create_bet(request):
              "message": "Created BET Failed"})
 
 
+@bsf_login_required
 def get_play_data():
     match_list = []
     response = requests.get(settings.INPLAY)
@@ -271,6 +292,8 @@ def api_score(score_data):
         return data
     return data
 
+
+@bsf_login_required
 def update_market(request):
     market_id = request.GET.get("marketId")
     event_name = request.GET.get("eventName")
@@ -289,8 +312,6 @@ def update_market(request):
         score_data = json.loads(api_response.content)
         if score_data:
             score = api_score(score_data)
-        else:
-            return redirect("inplay")
     response = requests.get(
         (settings.ODDS_SESSION.format(market_id=market_id)))
     if response.status_code == 200:
