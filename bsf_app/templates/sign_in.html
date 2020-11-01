@@ -25,95 +25,138 @@
     <script type="text/javascript" src="{% static 'js/bootstrap-select.min.js' %}">
     </script>
     <style type="text/css">
-    #new_user input.error{
+       #new_user input.error{
         border:1.5px solid #FB3A3A !important; 
+        }
+      #new_user label.error {
+            color:#FB3A3A !important;
+            font-size: 12px !important;
+            font-weight: 600 !important;
+            margin:3%;
+            font-family: "open-sans-regular";
+            letter-spacing: 1px;
       }
-    #new_user label.error {
-          color:#FB3A3A !important;
-          font-size: 12px !important;
-          font-weight: 600 !important;
-          margin:3%;
-          font-family: "open-sans-regular";
-          letter-spacing: 1px;
-    }
 
-    .invalid_statement{
-          color:#FB3A3A !important;
-          font-size: 12px !important;
-          font-weight: 600 !important;
-          font-family: "open-sans-regular";
-          letter-spacing: 1px;    
-    }
+      .invalid_statement{
+            color:#FB3A3A !important;
+            font-size: 12px !important;
+            font-weight: 600 !important;
+            font-family: "open-sans-regular";
+            letter-spacing: 1px;
+      }
 
+       .login_stripe{
+         background-color:#3A61A2;
+         border-radius: 10px;
+         margin-right: auto;
+         margin-left: auto;
+         text-align: center;
+         padding: 30px 10px;
+         /*width: 33.3333%;*/
+       }
+       .col-centered{
+           float: none;
+           margin: 0 auto;
+       }
 
-
-     .login_stripe{
-       background-color:#3A61A2;
-       border-radius: 10px;
-       margin-right: auto;
-       margin-left: auto;
-       text-align: center;
-       padding: 30px 10px;
-       /*width: 33.3333%;*/
-     }  
- 
-     .col-centered{
-         float: none;
-         margin: 0 auto;
-     }
-
-     .login_heading{
-          color: #fff;
+       .login_heading{
+            color: #fff;
+            /*font-family: "open-sans-semibold";*/
+            font-size: 23px;
+            letter-spacing: 2px;
+            margin-top: 0px !important;
+            padding-bottom: 25px;
+       }
+       .login_text_field{
+          background-color: #fff;
+          font-size: 14px !important;
           /*font-family: "open-sans-semibold";*/
-          font-size: 23px;
-          letter-spacing: 2px;
-          margin-top: 0px !important;
-          padding-bottom: 25px;
-     }
-     .login_text_field{
-        background-color: #fff;
-        font-size: 14px !important;
-        /*font-family: "open-sans-semibold";*/
-        letter-spacing: 1.5px;
-        border:none !important;
-        border-radius: 8px !important;
-        color: #848484 !important;
-        height: 40px;
-     }
+          letter-spacing: 1.5px;
+          border:none !important;
+          border-radius: 8px !important;
+          color: #848484 !important;
+          height: 40px;
+       }
 
-     .login_color_after_key_press{
-        color: #000 !important;
-     }
+       .login_color_after_key_press{
+          color: #000 !important;
+       }
 
-     .purp_btn{
-       color: #3A61A2 !important;
-       border-radius: 30px !important;
-       /*font-family: "open-sans-semibold";*/
-       font-size: 12px !important;
-       letter-spacing: 2px;
-       /*padding: 13px 35px;*/
-       /*line-height: 30px !important; */
-       background-color: #E9E9E9 !important;
-       border: 1px solid #E9E9E9 !important; 
-       margin-top: 4%;
-     }
+       .purp_btn{
+         color: #3A61A2 !important;
+         border-radius: 30px !important;
+         /*font-family: "open-sans-semibold";*/
+         font-size: 12px !important;
+         letter-spacing: 2px;
+         /*padding: 13px 35px;*/
+         /*line-height: 30px !important; */
+         background-color: #E9E9E9 !important;
+         border: 1px solid #E9E9E9 !important; 
+         margin-top: 4%;
+       }
 
-    .container {
-      display: unset;
-    }
+      .container {
+        display: unset;
+      }
 
-    .login-sub-container{
-      margin-right: 0px !important;
-      margin-left: 0px !important;
-    }
 
-    .login-sub-container .login_stripe{
-      width: 30%;
-      position: absolute;
-      left: 35%;
-      top: 20%;
-      right: 35%;
-    }
+      @media (max-width: 767px) {
+             .color-user-login-body{
+                background-color: #3A61A2 !important;
+             }
+      }
+      @media all and (min-width: 950px){
+          .login-sub-container .login_stripe{
+            width: 30%;
+            position: absolute;
+            left: 35%;
+            top: 20%;
+            right: 35%;
+          }
+
+      }
+      @media all and (max-height: 480px){
+           .login-sub-container .login_stripe{
+            position: static !important;
+          }
+          .container{
+            padding-bottom: 20px;
+          }
+      }
+      @media all and (min-width: 768px) and (max-width: 949px){
+            .login-sub-container .login_stripe{
+              width: 40%;
+              position: static;
+              left: 20%;
+              top: 20%;
+              right: 20%;
+            }
+      }
+      @media all and (max-height: 480px){
+               .login-sub-container .login_stripe{
+                position: static !important;
+              }
+              .container{
+                padding-bottom: 20px;
+              }
+      }
+      @media all and (max-width: 400px){
+          .login-sub-container{
+            margin: 0px auto 0px !important;
+          }
+      }
+      @media all and (max-height: 480px){
+           body{
+            padding-top: 30px !important;
+          }
+      }
+      *, *::before, *::after {
+        box-sizing: border-box !important;
+      }
+      .login-sub-container{
+        margin-right: 0px !important;
+        margin-left: 0px !important;
+      }
 
      </style>
 
@@ -122,7 +165,7 @@
 <body class="color-user-login-body" style="background-color: #fff;padding-top: 30px !important;">
   <div class="container set-login-page-bg-color">
     <div class="row login-sub-container" style="">
-      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-10 col-centered login_stripe login-box-color">
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-10 col-centered login_stripe login-box-color" id="login_stripe">
         <h1 class="login_heading">LOG IN</h1>
         <form accept-charset="UTF-8" action="{% url 'signin' %}" class="new_user" id="new_user" method="post">
             {% csrf_token %}
@@ -220,6 +263,14 @@ $('.login_text_field').keypress(function(){
 });
 /*------ Entered input color change code end --------*/ 
 </script>
+<style type="text/css">
+  @media screen and (min-width: 480px) {
+      .login-sub-container .login_stripe{
+        width: 100%;
+        position: absolute;
+      }
+    }
+</style>
 </body>
 
 

@@ -4,10 +4,10 @@
 <link rel="stylesheet" href="{% static 'css/show14.css' %}">
 <script src="{% static 'js/show14.js' %}"></script>
 
-<div style="padding-top:20px;">
+<div "market_div">
    <ul class="marquee">
       <marquee>
-         <li>!! WELCOME TO BSF777.COM !! : Sabhi Agent or Client ko Suchit kiya jata hai ki aap Apni id ho ya Master Pannel sabhi k Pasword strong rakhe Normal Paswrod na Rakhe -- ( for ex)-- : 12345/s1234,,,id ya master se koi bhi Mistake ya unused hota hai to company kisi bhi prakar ki Zimedar nahi rahegi........ Thank You !! </li>
+         <li>!! WELCOME TO BSF7777.COM !! : Sabhi Agent or Client ko Suchit kiya jata hai ki aap Apni id ho ya Master Pannel sabhi k Pasword strong rakhe Normal Paswrod na Rakhe -- ( for ex)-- : 12345/s1234,,,id ya master se koi bhi Mistake ya unused hota hai to company kisi bhi prakar ki Zimedar nahi rahegi........ Thank You !! </li>
           <!--<li>
             {{ event_name }}
           </li>-->
@@ -66,7 +66,7 @@
             <tbody data-market-id="{{market_id }}" data-market-sid="Match Winner_{{ market_id }}">
                <tr data-runner-id="{{ section_id1 }}" data-runner-sid="{{ runner1 }}  _{{ market_data.cricket.0.runners.0.marketId }}" class="non_fav_run">
                   <td data-runner-sid="{{ runner1 }}  _{{ market_data.cricket.0.runners.0.id }}" data-column="runner_name" class="
-                  {% if market_data.cricket.0.runners.0.back.0.price %} market_show_team {% else %} market_hide_team {% endif %} flag bet-place-tbl-td" style=""><img class="runner-flags hidden" src="{% static 'images/index.png' %}">
+                  {% if market_data.cricket.0.runners.0.back.0.price %} market_show_team {% else %} market_hide_team {% endif %} flag bet-place-tbl-td" style="">
                   {{ runner1 }}  </td>
                   <td data-runner-sid="{{ runner1 }}  _{{ section_id1 }}" data-column="back" class="open-keyboard MarketTable bet-place-tbl-td first-runner-bet-odds-yes-value cursor-pointer active-lagai-bet-box-color
                   {% if not market_data.cricket.0.runners.0.back.0.price %} close-status {% endif %}" odd-val="{{ market_data.cricket.0.runners.0.back.0.price }}" market-id="{{ market_id }}" market-name="{{ runner1}}" market-type="{{ market_type }}" runner-id="{{ section_id1 }}" event-id="{{event_id }}" heroic-market-type="Match Winner" data-id="KHAI" id="Match Winner_{{ section_id1 }}_lay_{{ runner1 }}  _{{ section_id1 }}">
@@ -82,7 +82,7 @@
                </tr>
                <tr data-runner-id="{{ section_id2 }}" data-runner-sid="{{ runner2 }}_{{ section_id2 }}" class="fav_run">
                   <td data-runner-sid="{{ runner2 }}_{{ section_id2 }}" data-column="runner_name" class="
-                  {% if market_data.cricket.0.runners.1.back.0.price %} market_show_team {% else %} market_hide_team {% endif %} flag bet-place-tbl-td" style=""><img class="runner-flags hidden" src="{% static 'images/index.png' %}">{{ runner2 }}</td>
+                  {% if market_data.cricket.0.runners.1.back.0.price %} market_show_team {% else %} market_hide_team {% endif %} flag bet-place-tbl-td" style="">{{ runner2 }}</td>
                   <td data-runner-sid="{{ runner2 }}_{{ section_id2 }}" data-column="back" class="open-keyboard MarketTable bet-place-tbl-td first-runner-bet-odds-yes-value cursor-pointer active-lagai-bet-box-color
                   {% if not market_data.cricket.0.runners.1.back.0.price %} close-status {% endif %}" odd-val="{{ market_data.cricket.0.runners.1.back.0.price }}" market-id="{{ market_id }}" market-name="{{ runner2 }}" market-type="{{ market_type }}" runner-id="{{ section_id2 }}" event-id="{{event_id }}" heroic-market-type="Match Winner" data-id="LAGAI" id="Match Winner_{{ section_id2 }}_back_{{ runner2 }}_{{ section_id2 }}">
                     {{ market_data.cricket.0.runners.1.back.0.price }}
@@ -313,7 +313,7 @@
       </form>
       <!-- Even Odd Amount Form end -->
       <div class="place-amount load-button-new-class enter-default-value place-bet-buttons-div" style="display: none;">
-         <table class="bet-value-buttons-table">
+         <table class="bet-value-buttons-table lg-table">
             <tbody>
                <tr>
                   <td><button amt-value="10000" class="default-value-btn">10H</button></td>
@@ -329,6 +329,27 @@
                   <td><button amt-value="500000" class="default-value-btn">5 L</button></td>
                   <td><button amt-value="1000000" class="default-value-btn">10 L</button></td>
                   <td><button amt-value="2500000" class="default-value-btn">25 L</button></td>
+               </tr>
+            </tbody>
+         </table>
+         <table class="bet-value-buttons-table sm-table">
+            <tbody>
+               <tr>
+                  <td><button amt-value="10000" class="default-value-btn">10H</button></td>
+                  <td><button amt-value="25000" class="default-value-btn">25 H</button></td>
+                  <td><button amt-value="50000" class="default-value-btn">50 H</button></td>
+                  <td><button amt-value="100000" class="default-value-btn">1 L</button></td>
+                  <td><button amt-value="200000" class="default-value-btn">2 L</button></td>
+               </tr>
+               <tr>
+                  <td><button amt-value="300000" class="default-value-btn">3 L</button></td>
+                  <td><button amt-value="400000" class="default-value-btn">4 L</button></td>
+                  <td><button amt-value="500000" class="default-value-btn">5 L</button></td>
+                  <td><button amt-value="1000000" class="default-value-btn">10 L</button></td>
+                  <td><button amt-value="2500000" class="default-value-btn">25 L</button></td>
+               </tr>
+               <tr>
+                 <td><button amt-value="clear" class="default-value-btn bet-value-clear-button">Clear</button></td>
                </tr>
             </tbody>
          </table>
@@ -360,6 +381,10 @@
 
 .market_type_row{
   background-color: #6E8FC9 !important;
+}
+
+.sm-table {
+  display: none;
 }
 
 .reload-class{
@@ -470,7 +495,78 @@
   color: rgb(255, 255, 255);
 }
 
+.market_div {
+  padding-top: 20px;
+}
 
+@media(max-width: 767px){
+  #show_play {
+    display: none;
+  }
+  .marquee {
+    display: none;
+  }
+
+  .sub-content{
+    padding-top: 0;
+  }
+
+  .market_div {
+    padding-top: 10px;
+  }
+
+
+}
+
+@media (max-width: 767px){
+  .refresh-btn {
+      display: none !important;
+  }
+  .col-xs-3 {
+    width: 25%;
+}
+}
+
+@media all and (max-width: 480px) and (min-width: 300px) {
+  .match-score {
+    width: 75% !important;
+  }
+
+  .refresh-small-screen {
+    width: 23.5% !important;
+    padding-top: 18px !important;
+    padding-bottom: 17px !important;
+  }
+
+  .refresh-small-screen img {
+    width: 40px !important;
+  }
+
+  .place-amount.load-button-new-class {
+      width: 100%;
+      display: flex;
+  }
+  .sm-table{
+    display: block;
+  }
+  .lg-table{
+    display: none;
+  }
+  .place-amount-div input {
+    width: 145px;
+  }
+  .button.alert.round {
+  height: 50px;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  }
+  .session-block {
+    display: flex;
+  }
+  .market-block {
+    display: flex;
+  }
+}
 </style>
 <script type="text/javascript">
   $(document).ready(function(){

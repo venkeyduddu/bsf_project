@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>BSF7777</title>
     <link rel="icon" href="{% static 'images/favicon.ico' %}">
     <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
@@ -63,6 +63,9 @@
         <br>
         <span class="header-user-coins"></span>
     </div>
+    <button type="button" class="navbar-toggle collapsed left-menu" aria-label="Open Menu">
+        <i class="fa fa-bars" style="font-size:35px;color:white"></i>
+    </button>
     <div class="navbar-collapse collapse" id="navbarCustom">
         <ul class="navbar-nav ml-auto">
             {% if current_page == 'rules' %}
@@ -131,7 +134,39 @@
         </ul>
     </div>
     </nav>
-   <div class="sub-content" style="padding-top:60px;">
+    <div class="left-menu-slide">
+       <!-- <button class="action action--open menu" ><img src="img/menu.png"></span></button> -->
+       <nav id="ml-menu" class="menu">
+          <nav class="menu__breadcrumbs"><a></a></nav>
+          <button class="action action--close" aria-label="Close Menu"><i class="fa fa-times fa-lg" aria-hidden="true"></i></button>
+          <div class="menu__wrap" style="z-index: 9999 !important;">
+             <ul data-menu="main" class="menu__level menu__level--current">
+                <li class="menu__item"><a class="menu__link " data-submenu="submenu-1" href="{% url 'home' %}">HOME</a>
+                </li>
+                <li class="menu__item"><a class="menu__link " data-submenu="submenu-2" href="{% url 'schedule' %}">SCHEDULE</a>
+                </li>
+                <li class="menu__item"><a class="menu__link " data-submenu="submenu-2" href="{% url 'inplay' %}">IN PLAY</a>
+                </li>
+                <li class="menu__item"><a class="menu__link " data-submenu="submenu-2" href="{% url 'tournament' %}">TOURNAMENT</a>
+                </li>
+                <li class="menu__item"><a class="menu__link " data-submenu="submenu-2" href="{% url 'upcoming' %}">UPCOMING</a>
+                </li>
+                <li class="menu__item"><a class="menu__link  active-page" data-submenu="submenu-3" href="{% url 'rules' %}">
+                RULES</a>
+                </li>
+                <li class="menu__item"><a class="menu__link " data-submenu="submenu-2" href="{% url 'ledger' %}">LEDGER </a>
+                </li>
+                <li class="menu__item"><a class="menu__link " data-submenu="submenu-3" href="{% url 'change_password' %}">PASSWORD</a>
+                </li>
+                <li class="menu__item"><a class="menu__link " data-submenu="submenu-3" href="{% url 'games' %}">GAMES</a></li>
+                <li class="menu__item"><a class="menu__link " data-submenu="submenu-3" href="{% url 'settings' %}">SETTINGS</a></li>
+                <li class="menu__item"><a class="menu__link" data-submenu="submenu-3" href="{% url 'logout' %}" data-method="delete" rel="nofollow">LOGOUT</a>
+                </li>
+             </ul>
+          </div>
+       </nav>
+    </div>
+    <div class="sub-content" style="padding-top:60px;">
         {% block content %}
         {% endblock %}
    </div>
@@ -147,6 +182,14 @@
         var pathname = window.location.pathname;
         $('.active').removeClass('active');
         $('.navbar-nav > li > a[href="' + pathname + '"]').parent().addClass('active');
+        $('.active-page').removeClass('active-page');
+        $('.menu__level > li > a[href="' + pathname + '"]').parent().addClass('active-page');
+        $(".left-menu").click(function(){
+            $(".menu").addClass("menu--open");
+        });
+        $(".action--close").click(function(){
+            $(".menu").removeClass("menu--open");
+        });
     });
 </script>
 </html>

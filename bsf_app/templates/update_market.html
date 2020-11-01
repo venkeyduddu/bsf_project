@@ -49,7 +49,7 @@
       <tbody data-market-id="{{market_id }}" data-market-sid="Match Winner_{{ market_id }}">
          <tr data-runner-id="{{ section_id1 }}" data-runner-sid="{{ runner1 }}  _{{ market_data.cricket.0.runners.0.marketId }}" class="non_fav_run">
             <td data-runner-sid="{{ runner1 }}  _{{ market_data.cricket.0.runners.0.id }}" data-column="runner_name" class="
-            {% if market_data.cricket.0.runners.0.back.0.price %} market_show_team {% else %} market_hide_team {% endif %} flag bet-place-tbl-td" style=""><img class="runner-flags hidden" src="{% static 'images/index.png' %}">
+            {% if market_data.cricket.0.runners.0.back.0.price %} market_show_team {% else %} market_hide_team {% endif %} flag bet-place-tbl-td" style="">
             {{ runner1 }}  </td>
             <td data-runner-sid="{{ runner1 }}  _{{ section_id1 }}" data-column="back" class="open-keyboard MarketTable bet-place-tbl-td first-runner-bet-odds-yes-value cursor-pointer active-lagai-bet-box-color
             {% if not market_data.cricket.0.runners.0.back.0.price %} close-status {% endif %}" odd-val="{{ market_data.cricket.0.runners.0.back.0.price }}" market-id="{{ market_id }}" market-name="{{ runner1}}" market-type="{{ market_type }}" runner-id="{{ section_id1 }}" event-id="{{event_id }}" heroic-market-type="Match Winner" data-id="KHAI" id="Match Winner_{{ section_id1 }}_lay_{{ runner1 }}  _{{ section_id1 }}">
@@ -65,7 +65,7 @@
          </tr>
          <tr data-runner-id="{{ section_id2 }}" data-runner-sid="{{ runner2 }}_{{ section_id2 }}" class="fav_run">
             <td data-runner-sid="{{ runner2 }}_{{ section_id2 }}" data-column="runner_name" class="
-            {% if market_data.cricket.0.runners.1.back.0.price %} market_show_team {% else %} market_hide_team {% endif %} flag bet-place-tbl-td" style=""><img class="runner-flags hidden" src="{% static 'images/index.png' %}">{{ runner2 }}</td>
+            {% if market_data.cricket.0.runners.1.back.0.price %} market_show_team {% else %} market_hide_team {% endif %} flag bet-place-tbl-td" style="">{{ runner2 }}</td>
             <td data-runner-sid="{{ runner2 }}_{{ section_id2 }}" data-column="back" class="open-keyboard MarketTable bet-place-tbl-td first-runner-bet-odds-yes-value cursor-pointer active-lagai-bet-box-color
             {% if not market_data.cricket.0.runners.1.back.0.price %} close-status {% endif %}" odd-val="{{ market_data.cricket.0.runners.1.back.0.price }}" market-id="{{ market_id }}" market-name="{{ runner2 }}" market-type="{{ market_type }}" runner-id="{{ section_id2 }}" event-id="{{event_id }}" heroic-market-type="Match Winner" data-id="LAGAI" id="Match Winner_{{ section_id2 }}_back_{{ runner2 }}_{{ section_id2 }}">
               {{ market_data.cricket.0.runners.1.back.0.price }}

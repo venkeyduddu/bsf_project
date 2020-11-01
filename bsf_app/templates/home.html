@@ -29,7 +29,7 @@
 
         <div class="col-md-2 col-lg-2 col-sm-2"></div>
       </div>
-      <div class="row" style="margin-top:25px;">
+      <div class="row row-top-margin">
         <div class="col-md-2 col-lg-2 col-sm-2"></div>
         
         <div class="col-md-4 col-lg-4 col-sm-4">
@@ -47,7 +47,7 @@
         </div>
         <div class="col-md-2 col-lg-2 col-sm-2"></div>
       </div>
-      <div class="row match-box" style="margin-top:25px;">
+      <div class="row match-box row-top-margin">
         <div class="col-md-2 col-lg-2 col-sm-2"></div>
         <div class="col-md-4 col-lg-4 col-sm-4">
           <a class="card card-1 card-color" href="{% url 'upcoming' %}">
@@ -78,7 +78,7 @@
 
         <div class="col-md-2 col-lg-2 col-sm-2"></div>
       </div>
-      <div class="row match-box" style="margin-top:25px;">
+      <div class="row match-box row-top-margin">
         <div class="col-md-2 col-lg-2 col-sm-2"></div>
 
           <div class="col-md-4 col-lg-4 col-sm-4">
@@ -120,12 +120,6 @@
 	  height: 100%;
 	  display: table-cell;
 	  vertical-align: middle;
-	}
-
-	.row {
-	    margin-right: -15px;
-	    margin-left: -15px;
-	    height: 90px;
 	}
 
 	.content-top-padding{
@@ -268,12 +262,59 @@
     line-height: 2;
 }
 
+@media (min-width: 1200px){
 .col-lg-4 {
     width: 33.33333333%;
+    float: left;
 }
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+    height: 90px;
+}
+
+}
+
+@media (max-width: 767px) {
+
+  .model-dialog-custom {
+    width: 300px !important;
+    margin: 135px auto !important;
+  }
+
+}
+
+@media(min-width: 767px){
+  .home-page-button-gp{
+  /*  margin: 24%;*/
+  }
+  .change-pass-popup-cointainer{
+    padding: 127px !important;
+  }
+}
+
+.row-top-margin {
+  margin-top: 25px;
+}
+
+@media(max-width: 767px){
+  .row-top-margin {
+    margin-top: 0;
+  }
+  #show_play {
+    display: none;
+  }
+
+}
+
 
   </style>
   <script type="text/javascript">
+
+  $("#pw_close_btn").click(function(){
+  // function removeGameBanner(){
+     $("#show_play").css("display", "none");
+  });
 
   </script>
 

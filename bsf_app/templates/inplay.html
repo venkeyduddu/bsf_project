@@ -32,7 +32,7 @@
     <a href="{% url 'market_detail' %}?{{each_match|get_encoded_dict}}" data-id="{{ each_match.eventId }}">
      <div class="row" style="margin: auto 15px 15px;">
         <div class="col-xs-12 top-time-dtl in-play-right-box-color">
-           {{ each_match.eventDate }}
+           {{ each_match.eventDate|filter_date:'d' }} {{ each_match.eventDate|filter_date:'month' }} {{ each_match.eventDate|filter_date:'time' }}
            <!-- 27 APRIL 09:30:00 PM -->
         </div>
         <div class="col-md-10 col-lg-10 col-sm-9 col-xs-12 in-play-row-left" style="padding: 0px 0px 0px 0px">
@@ -82,6 +82,73 @@
  {% endif %}
 
 
+<style type="text/css">
+  @media (max-width: 767px) {
+    .in-play-row-right{
+      display: none;
+
+    }
+    .in-play-row-left{
+      border-top-left-radius: 0em;
+      border-bottom-right-radius: 7px;
+    }
+    .top-time-dtl{
+      border-top-left-radius: 7px;
+      border-top-right-radius: 7px;
+      display: block;
+      font-size:14px;
+    }
+    .place-amount{
+      float: left;
+      padding: 10px 0px 10px;
+    }
+
+  }
+
+@media all and (max-width: 768px){
+  .span-btn {
+    height: 35px;
+    width: auto;
+    margin-left: 0px;
+}
+.img-height {
+    height: 30px;
+    margin-top: 5px;
+    width: auto;
+    margin-left: 0px;
+}
+.match-box{
+  margin-top: -4% !important;
+}
+.navbar {
+    margin-bottom: 0px !important;
+}
+.header-top-spacing {
+    padding-top: 10px;
+}
+.flag{
+  padding: 8px 8px 8px 0px !important;
+}
+
+
+  .inplay-show-tbl-td img{
+    position: absolute;
+    right: 24px;
+    top: 18px;
+  }
+  .inplay-show-tbl-td{
+    text-align: left !important;
+  }
+  .refresh-small-screen{
+    text-align: center;
+    background-color: #fff;
+    padding-top: 15px;
+    padding-bottom: 14px;
+    width: 15.7%;
+  }
+}
+
+</style>
 
 <script>
 function show_match_status(){
