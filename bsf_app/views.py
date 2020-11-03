@@ -64,8 +64,16 @@ def signin_view(request):
                                json=data)
         if result.status_code == 200:
             if json.loads(result.content).get("IsAuthenticated") == "Authenticated":
+                # import pdb; pdb.set_trace()
+                profile_api_response = requests.get((settings.USER_PROFILE).format(user_id=user_name))
+                if profile_api_response.status_code == 200:
+                    user_profile = json.loads(profile_api_response.content)
+                else:
+                    user_profile = {}
                 response = redirect("rules")
                 response.set_cookie("user_name", user_name)
+                response.set_cookie("userprofile_name", user_profile.get("UserName"))
+                response.set_cookie("user_coins", user_profile.get("Total_Coins"))
                 return response
             return render(request, "sign_in.html", {"error": "UserID or Password is incorrect", "otp": captcha_key})
     return render(request, "sign_in.html", {"error": "invalid captcha", "otp": captcha_key})
@@ -206,7 +214,8 @@ def create_bet(request):
         market_type = request.POST.get("market_type")
         market_rate = request.POST.get("market_rate")
         bet_amount = request.POST.get("stack")
-        userid = "newuser1"
+        userid = request.COOKIES.get("user_name") or "newuser1"
+        user_coins = request.COOKIES.get("user_coins") or get_user_coins(userid)
         data = {
             "userid": userid,
             "market_name": market_name,
@@ -215,18 +224,32 @@ def create_bet(request):
             "bet_amount": bet_amount,
         }
         print(data)
-        result = requests.post(settings.CREATE_BET,
-                               json=data)
-        if result.status_code == 200:
-            if json.loads(result.content).get("IsBetDone") == "done":
-                # messages.success(request, "Created BET Successfully")
+        # import pdb; pdb.set_trace()
+        user_coins = int(user_coins)
+        bet_coins = int(bet_amount)
+        if bet_coins > 499:
+            if user_coins > bet_coins:
+                result = requests.post(settings.CREATE_BET,
+                                       json=data)
+                if result.status_code == 200:
+                    if json.loads(result.content).get("IsBetDone") == "done":
+                        # messages.success(request, "Created BET Successfully")
+                        response = JsonResponse(
+                            {"status": "success",
+                             "message": "BET Placed Successfully"})
+                        user_coins = int(user_coins - bet_coins)
+                        response.set_cookie("user_coins", user_coins)
+                        return response
+                # messages.error(request, "Created BET Failed")
                 return JsonResponse(
-                    {"status": "success",
-                     "message": "BET Placed Successfully"})
-        # messages.error(request, "Created BET Failed")
+                    {"status": "fail",
+                     "message": "Created BET Failed"})
+            return JsonResponse(
+                {"status": "fail",
+                 "message": "You Don't have coins for place BET"})
         return JsonResponse(
             {"status": "fail",
-             "message": "Created BET Failed"})
+             "message": "500 is minimum amount for place BET"})
 
 
 @bsf_login_required
@@ -344,3 +367,11 @@ def set_cookie(response, key, value,):
     expires = datetime.datetime.strftime(datetime.datetime.utcnow(
     ) + datetime.timedelta(seconds=max_age), "%a, %d-%b-%Y %H:%M:%S GMT")
     response.set_cookie(key, value, max_age=max_age, expires=expires)
+
+
+def get_user_coins(userid):
+    profile_api_response = requests.get((settings.USER_PROFILE).format(user_id=userid))
+    if profile_api_response.status_code == 200:
+        user_profile = json.loads(profile_api_response.content)
+        return user_profile.get("Total_Coins")
+    return 0

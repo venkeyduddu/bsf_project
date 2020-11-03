@@ -589,7 +589,7 @@
             $('.update_market_data').html(data);
           });
       // }
-       },10000);
+       },3000);
 
   });
 
@@ -606,6 +606,7 @@
         notify(data.message, "success")
         $(".market-form").hide();
         $(".enter-default-value").hide();
+        location.reload(true);
       }else{
         notify(data.message, "error")
         $(".market-form").hide();
@@ -623,6 +624,7 @@ $('.session-form').submit(function(e){
         notify(data.message, "success")
         $(".session-form").hide();
         $(".enter-default-value").hide();
+        location.reload(true);
       }else{
         notify(data.message, "error")
         $(".session-form").hide();

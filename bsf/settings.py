@@ -131,3 +131,5 @@ UPCOMING = "http://ec2-13-58-41-168.us-east-2.compute.amazonaws.com:8080/IPL/new
 ODDS_SESSION = "http://ec2-13-58-41-168.us-east-2.compute.amazonaws.com:8080/IPL/betfair_odds_session/getmatchodds_session/{market_id}"
 CREATE_BET = "http://ec2-13-58-41-168.us-east-2.compute.amazonaws.com:8080/IPL/place_bet/place"
 SCORE_API = "https://ips.betfair.com/inplayservice/v1/scores?_ak=nzIFcwyWhrlwYMrh&alt=json&eventIds={event_id}&locale=en_GB&productType=EXCHANGE&regionCode=UK"
+# SCORE_API = "http://ec2-13-58-41-168.us-east-2.compute.amazonaws.com:8080/IPL/betfair/getmatchscore/{eventid}"
+USER_PROFILE = "http://ec2-13-58-41-168.us-east-2.compute.amazonaws.com:8080/IPL/fetchuserdetails/{user_id}"

@@ -61,7 +61,9 @@
     <div class="user_profile_detail">
         <span class="header-user-nm">{{ request.COOKIES.user_name }}</span>
         <br>
-        <span class="header-user-coins"></span>
+        <span class="header-user-coins">
+            {{ request.COOKIES.user_coins }}
+        </span>
     </div>
     <button type="button" class="navbar-toggle collapsed left-menu" aria-label="Open Menu">
         <i class="fa fa-bars" style="font-size:35px;color:white"></i>
