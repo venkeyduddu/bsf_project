@@ -10,7 +10,10 @@
         </p>
      </div>
      <div class=" col-lg-3 col-xs-3 col-md-3 col-sm-3 bet_status_box bet-status-text-div">
-        <div class="bet-status-text-p event commentry-box-color" id="event_table_139839" style="font-size: 40px; line-height: 40px; padding: 0px;">BET<br>{{ market_data.cricket.0.status }}</div>
+        <div class="bet-status-text-p event commentry-box-color" style="font-size: 40px; line-height: 40px; padding: 0px;" id="event_status">BET<br>{{ market_data.cricket.0.status }}</div>
+        <div class="bet-status-text-p ball_status" id="ball_status" style="font-size: 40px; line-height: 40px; padding: 0px;">
+           {{ball_status}}
+        </div>
         <!--                       <div class="bet-status-text-p">
            Wide Ball <br>
            <i class="fa fa-plus" aria-hidden="true"></i><br>

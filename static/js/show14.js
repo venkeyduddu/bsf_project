@@ -132,6 +132,7 @@ $(document).ready(function(){
         var event_id = $(this).attr('event_id')
         var market_id = $(this).attr('market-id')
         var market_name = $(this).attr('market-name')
+        var event_name = $(this).attr('event-name')
         // var odd_val = $(this).attr('odd-val')
         var heroic_market_type = $(this).attr('heroic-market-type')
         var odds_type_lable;
@@ -144,6 +145,7 @@ $(document).ready(function(){
         $('#market_id').val(market_id);
         $('#market_name').val(market_name);
         $('#market_type').val(odds_type);
+        $('#market_event_name').val(event_name);
         // $('#market_nm').text(market_name);
         // $('#market_rt').text(updated_clicked_value);
         $('#market_rt').empty();
@@ -178,10 +180,13 @@ $(document).ready(function(){
       var market_type = $(this).attr('data-id')
       var market_name = $(this).attr('market-name')
       var market_rate = $(this).attr('market-rate')
+      var event_name = $(this).attr('event-name')
 
       $('#session_market_name').val(market_name);
       $('#session_market_type').val(market_type);
       $('#session_market_rate').val(market_rate);
+      $('#session_event_name').val(event_name);
+
       $('#session_rt').empty();
       $('#session_nm').empty();
       $('#session_rt').html($('#session_rt').html()+market_rate+  '&nbsp;&nbsp;('+market_type+')');

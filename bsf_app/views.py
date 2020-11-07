@@ -8,6 +8,9 @@ from django.contrib import messages
 import datetime
 from django.template.loader import render_to_string
 from functools import wraps
+from datetime import date
+from collections import defaultdict
+
 
 # Create your views here.
 
@@ -65,15 +68,18 @@ def signin_view(request):
         if result.status_code == 200:
             if json.loads(result.content).get("IsAuthenticated") == "Authenticated":
                 # import pdb; pdb.set_trace()
-                profile_api_response = requests.get((settings.USER_PROFILE).format(user_id=user_name))
+                profile_api_response = requests.get(
+                    (settings.USER_PROFILE).format(user_id=user_name))
                 if profile_api_response.status_code == 200:
                     user_profile = json.loads(profile_api_response.content)
                 else:
                     user_profile = {}
                 response = redirect("rules")
                 response.set_cookie("user_name", user_name)
-                response.set_cookie("userprofile_name", user_profile.get("UserName"))
-                response.set_cookie("user_coins", user_profile.get("Total_Coins"))
+                response.set_cookie("userprofile_name",
+                                    user_profile.get("UserName"))
+                response.set_cookie(
+                    "user_coins", user_profile.get("Total_Coins"))
                 return response
             return render(request, "sign_in.html", {"error": "UserID or Password is incorrect", "otp": captcha_key})
     return render(request, "sign_in.html", {"error": "invalid captcha", "otp": captcha_key})
@@ -160,11 +166,13 @@ def market_detail(request):
     market_type = request.GET.get("marketType")
     api_response = requests.get((settings.SCORE_API).format(event_id=event_id))
     score = []
+    ball_status = ""
     # import pdb; pdb.set_trace()
     if api_response.status_code == 200:
         score_data = json.loads(api_response.content)
         if score_data:
             score = api_score(score_data)
+            ball_status = get_ball_status(score_data)
     response = requests.get(
         (settings.ODDS_SESSION.format(market_id=market_id)))
     if response.status_code == 200:
@@ -186,7 +194,8 @@ def market_detail(request):
                  "market_name": market_name,
                  "market_type": market_type,
                  "market_id": market_id,
-                 "score": score})
+                 "score": score,
+                 "ball_status": ball_status})
         return redirect("inplay")
     return render(request, "market.html")
 
@@ -215,13 +224,18 @@ def create_bet(request):
         market_rate = request.POST.get("market_rate")
         bet_amount = request.POST.get("stack")
         userid = request.COOKIES.get("user_name") or "newuser1"
-        user_coins = request.COOKIES.get("user_coins") or get_user_coins(userid)
+        user_coins = request.COOKIES.get(
+            "user_coins") or get_user_coins(userid)
+        bet_date = date.today().strftime("%d-%m-%Y")
+        event_name = request.POST.get("event_name")
         data = {
             "userid": userid,
             "market_name": market_name,
             "market_type": market_type,
             "market_rate": market_rate,
             "bet_amount": bet_amount,
+            "bet_date": bet_date,
+            "versus": event_name,
         }
         print(data)
         # import pdb; pdb.set_trace()
@@ -316,6 +330,23 @@ def api_score(score_data):
     return data
 
 
+def get_ball_status(score):
+    ball_status = score[0].get("stateOfBall")
+    if ball_status.get("batsmanRuns") != "0":
+        return ball_status.get("batsmanRuns")
+    elif ball_status.get("wide") != "0":
+        return "wide"
+    elif ball_status.get("bye") != "0":
+        return "bye"
+    elif ball_status.get("legBye") != "0":
+        return "legBye"
+    elif ball_status.get("noBall") != "0":
+        return "noBall"
+    elif ball_status.get("dismissalTypeName") != "Not Out":
+        return "Out"
+    return ""
+
+
 @bsf_login_required
 def update_market(request):
     market_id = request.GET.get("marketId")
@@ -330,11 +361,13 @@ def update_market(request):
     market_type = request.GET.get("marketType")
     api_response = requests.get((settings.SCORE_API).format(event_id=event_id))
     score = []
+    ball_status = ""
     # import pdb; pdb.set_trace()
     if api_response.status_code == 200:
         score_data = json.loads(api_response.content)
         if score_data:
             score = api_score(score_data)
+            ball_status = get_ball_status(score_data)
     response = requests.get(
         (settings.ODDS_SESSION.format(market_id=market_id)))
     if response.status_code == 200:
@@ -355,7 +388,8 @@ def update_market(request):
                  "market_name": market_name,
                  "market_type": market_type,
                  "market_id": market_id,
-                 "score": score})
+                 "score": score,
+                 "ball_status": ball_status})
             return HttpResponse(html)
         return redirect("inplay")
     html = render_to_string('update_market.html')
@@ -370,8 +404,21 @@ def set_cookie(response, key, value,):
 
 
 def get_user_coins(userid):
-    profile_api_response = requests.get((settings.USER_PROFILE).format(user_id=userid))
+    profile_api_response = requests.get(
+        (settings.USER_PROFILE).format(user_id=userid))
     if profile_api_response.status_code == 200:
         user_profile = json.loads(profile_api_response.content)
         return user_profile.get("Total_Coins")
     return 0
+
+
+def get_bet_details(url):
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = json.loads(response.content)
+        tmp = defaultdict(list)
+        for item in data:
+            tmp[item['versus'], item["bet_date"]].append(
+                [item['bet_amount'], item['market_name']])
+
+        return temp

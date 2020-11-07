@@ -205,7 +205,7 @@ body {
 
 /* line 355, /home/define/Documents/heroic-deploy/heroic/app/assets/stylesheets/user/show14.css.scss */
 .bet-status-text-p {
-  display: table-cell !important;
+  display: table-cell;
   text-align: center !important;
   vertical-align: middle !important;
   font-size: 20px;
