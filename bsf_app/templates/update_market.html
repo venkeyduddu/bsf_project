@@ -113,13 +113,13 @@
             <td data-column="session_title" class="bet-place-tbl-td" style="text-align:left;"  data-toggle="tooltip" title="{{ row.RunnerName }}">
               {{ row.RunnerName }}
             </td>
-            <td data-column="no_runs" class="bet-place-tbl-td open-keyboard-session SessionTable bet-val-cent cursor-pointer first-runner-bet-odds-yes-value" data-id="YES" market-name="{{ row.RunnerName }}" market-rate="{{ row.LayPrice1 }}">
+            <td data-column="no_runs" class="bet-place-tbl-td open-keyboard-session SessionTable bet-val-cent cursor-pointer first-runner-bet-odds-yes-value" data-id="YES" market-name="{{ row.RunnerName }}" market-rate="{{ row.LayPrice1 }}" market-id="{{ market_id }}">
               {{ row.LayPrice1 }}
             </td>
             <td data-column="no_rate" class="bet-place-tbl-td bet-val-cent close-status">
               {{ row.LaySize1 }}
             </td>
-            <td data-column="yes_runs" class="bet-place-tbl-td open-keyboard-session SessionTable bet-val-cent cursor-pointer first-runner-bet-odds-no-value" data-id="NO" market-name="{{ row.RunnerName }}" market-rate="{{ row.BackPrice1 }}">
+            <td data-column="yes_runs" class="bet-place-tbl-td open-keyboard-session SessionTable bet-val-cent cursor-pointer first-runner-bet-odds-no-value" data-id="NO" market-name="{{ row.RunnerName }}" market-rate="{{ row.BackPrice1 }}" market-id="{{ market_id }}">
               {{ row.BackPrice1 }}
             </td>
             <td data-column="yes_rate" class="bet-place-tbl-td bet-val-cent close-status">

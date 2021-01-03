@@ -113,7 +113,22 @@ def ledger(request):
 
 @bsf_login_required
 def ledger_team(request, ledger_id):
-    return render(request, "team.html")
+    import pdb; pdb.set_trace()
+    response = requests.get((settings.MARKET_BET_DETAILS).format(userid='newuser2', market_id='xyz'))
+    if response.status_code == 200:
+        bet_details_list = json.loads(response.content)
+        lagai_khai_list = [x for x in bet_details_list if x.get("market_type").upper() == 'LAGAI' or x.get("market_type").upper() == 'KHAI']
+        yes_no_list = [x for x in bet_details_list if x.get("market_type").upper().startswith('YES') or x.get("market_type").upper().startswith('NO')]
+        return render(
+            request, "team.html",
+            {"bet_details_list": bet_details_list,
+             "lagai_khai_list": lagai_khai_list,
+             "yes_no_list": yes_no_list})
+    return render(
+        request, "team.html",
+        {"bet_details_list": [],
+         "lagai_khai_list": [],
+         "yes_no_list": []})
 
 
 @bsf_login_required
@@ -222,6 +237,7 @@ def create_bet(request):
         market_name = request.POST.get("market_name")
         market_type = request.POST.get("market_type")
         market_rate = request.POST.get("market_rate")
+        market_id = request.POST.get("market_id")
         bet_amount = request.POST.get("stack")
         userid = request.COOKIES.get("user_name") or "newuser1"
         user_coins = request.COOKIES.get(
@@ -422,3 +438,8 @@ def get_bet_details(url):
                 [item['bet_amount'], item['market_name']])
 
         return temp
+
+
+@bsf_login_required
+def teen_patti_t20(request):
+    return render(request, "teen_patti_t20.html")

@@ -24,3 +24,15 @@ def filter_date(value, arg):
 @register.filter
 def get_encoded_dict(data_dict):
     return urllib.parse.urlencode(data_dict)
+
+
+@register.filter
+def filter_yes_no(value, arg):
+    if ')' in value and '(' in value:
+        if arg == "runs":
+            return value.replace(')', '').split('(')[1]
+        elif arg == "yes_no":
+            return value.replace(')', '').split('(')[0]
+        else:
+            return value
+    return '---'

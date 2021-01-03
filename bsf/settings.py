@@ -12,8 +12,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'vb166+54$hc1g#d!1htovg9+fwu2nj0n&hun&y=@a%w2*8pfn6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-# DEBUG = True
+# DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -106,31 +106,32 @@ USE_TZ = True
 
 
 
-# STATIC_ROOT = ""
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
-# STATIC_URL = '/static/'
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/'), ]
-
-
+STATIC_ROOT = ""
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/')
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'static')
-STATICFILES_DIRS = [
-    'D:/home/site/wwwroot/static',
-    os.path.join(BASE_DIR,'static'),
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/'), ]
+
+
+# STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR,'static')
+# STATICFILES_DIRS = [
+#     'D:/home/site/wwwroot/static',
+#     os.path.join(BASE_DIR,'static'),
+# ]
 
 
 
 
 ''' API Links '''
 
-INPLAY = "http://ec2-13-58-41-168.us-east-2.compute.amazonaws.com:8080/IPL/newbetfairinplay/getinplay"
-OTP = "http://ec2-13-58-41-168.us-east-2.compute.amazonaws.com:8080/IPL/OTPService/getotp"
-AUTH = "http://ec2-13-58-41-168.us-east-2.compute.amazonaws.com:8080/IPL/Auth/authenticateuser"
-UPCOMING = "http://ec2-13-58-41-168.us-east-2.compute.amazonaws.com:8080/IPL/newbetfairupcoming/getupcoming"
-ODDS_SESSION = "http://ec2-13-58-41-168.us-east-2.compute.amazonaws.com:8080/IPL/betfair_odds_session/getmatchodds_session/{market_id}"
-CREATE_BET = "http://ec2-13-58-41-168.us-east-2.compute.amazonaws.com:8080/IPL/place_bet/place"
+INPLAY = "http://ec2-18-216-229-30.us-east-2.compute.amazonaws.com:8080/IPL/newbetfairinplay/getinplay"
+OTP = "http://ec2-18-216-229-30.us-east-2.compute.amazonaws.com:8080/IPL/OTPService/getotp"
+AUTH = "http://ec2-18-216-229-30.us-east-2.compute.amazonaws.com:8080/IPL/Auth/authenticateuser"
+UPCOMING = "http://ec2-18-216-229-30.us-east-2.compute.amazonaws.com:8080/IPL/newbetfairupcoming/getupcoming"
+ODDS_SESSION = "http://ec2-18-216-229-30.us-east-2.compute.amazonaws.com:8080/IPL/betfair_odds_session/getmatchodds_session/{market_id}"
+CREATE_BET = "http://ec2-18-216-229-30.us-east-2.compute.amazonaws.com:8080/IPL/place_bet/place"
 SCORE_API = "https://ips.betfair.com/inplayservice/v1/scores?_ak=nzIFcwyWhrlwYMrh&alt=json&eventIds={event_id}&locale=en_GB&productType=EXCHANGE&regionCode=UK"
 # SCORE_API = "http://ec2-13-58-41-168.us-east-2.compute.amazonaws.com:8080/IPL/betfair/getmatchscore/{eventid}"
-USER_PROFILE = "http://ec2-13-58-41-168.us-east-2.compute.amazonaws.com:8080/IPL/fetchuserdetails/{user_id}"
-BET_DETAILS = "http://ec2-13-58-41-168.us-east-2.compute.amazonaws.com:8080/IPL/fetchbetdetails/{user_id}"
+USER_PROFILE = "http://ec2-18-216-229-30.us-east-2.compute.amazonaws.com:8080/IPL/fetchuserdetails/{user_id}"
+BET_DETAILS = "http://ec2-18-216-229-30.us-east-2.compute.amazonaws.com:8080/IPL/fetchbetdetails/{user_id}"
+MARKET_BET_DETAILS = "http://ec2-18-216-229-30.us-east-2.compute.amazonaws.com:8080/IPL/fetchbetdetails/getspecific?userid={userid}&marketid={market_id}"

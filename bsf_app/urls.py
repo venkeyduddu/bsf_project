@@ -21,4 +21,5 @@ urlpatterns = [
     path('user/games/', games, name="games"),
     path('user/place-bet/', create_bet, name="create_bet"),
     path('update_market/', update_market, name="update_market"),
+    path('teen_patti-t20/', teen_patti_t20, name="teen_patti_t20"),
 ]

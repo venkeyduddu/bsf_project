@@ -181,11 +181,13 @@ $(document).ready(function(){
       var market_name = $(this).attr('market-name')
       var market_rate = $(this).attr('market-rate')
       var event_name = $(this).attr('event-name')
+      var market_id = $(this).attr('market-id')
 
       $('#session_market_name').val(market_name);
       $('#session_market_type').val(market_type);
       $('#session_market_rate').val(market_rate);
       $('#session_event_name').val(event_name);
+      $('#market_id').val(market_id);
 
       $('#session_rt').empty();
       $('#session_nm').empty();
